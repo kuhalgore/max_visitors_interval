@@ -10,12 +10,12 @@ TEST_CASE("test 01", "3 oerlapping intervals")
 	{
 		{"10:15","14:20"},
 		{"11:10","15:22"},
-		{"9:58","11:14"}
+		{"09:58","11:14"}
 	};
 
 	testObj.setEntryExits(data);
 	testObj.calculateFrequencies();
-	REQUIRE(testObj.getFrequency("9:57") == 0);
+	REQUIRE(testObj.getFrequency("09:57") == 0);
 
 	REQUIRE(testObj.getFrequency("09:58") == 1);
 	REQUIRE(testObj.getFrequency("10:14") == 1);

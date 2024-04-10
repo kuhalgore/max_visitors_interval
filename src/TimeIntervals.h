@@ -35,9 +35,9 @@ constexpr int TimeDigitPrecision = 2;
 class TimeIntervals
 {
 	//std::vector<std::pair<int, int>> entryExits;
-	std::vector<std::pair<std::string, std::string>> entryExits;
-	std::array<int, NoOfTimePoints> freq;
-	std::pair< std::pair<std::string, std::string>, size_t > intervalWithMaxVal;
+	std::vector<std::pair<std::string, std::string>> entryExits{};
+	std::array<unsigned int, NoOfTimePoints> freq{};
+	std::pair< std::pair<std::string, std::string>, size_t > intervalWithMaxVal{};
 
 public:
 
