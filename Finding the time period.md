@@ -7,12 +7,12 @@ This filename can be passed into the program as a first argument.
 This program prints the interval in below format.
 <start time>-<end time>;<number of visitors>. 
 \n
-For example if the file contains this: \r\n
-10:15,14:20 \r\n
-11:10,15:22 \r\n
-09:58,11:14 \r\n
-then output will be \r\n
-11:10-11:14;3 \r\n
+For example if the file contains this: \n
+10:15,14:20 \n
+11:10,15:22 \n
+09:58,11:14 \n
+then output will be \n
+11:10-11:14;3 \n
 \n
 <b>Logic: ============================= </b>\n
 It is assumed that time is represented in HH:MM format, \n
