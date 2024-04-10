@@ -1,26 +1,40 @@
 #include "TimeIntervals.h"
+#include <regex>
 
-
-int TimeIntervals::HHMMToInt(const std::string &arg)
+//helper functions definitions
+std::pair<std::string, std::string> splitString(const std::string & arg, char c)
 {
-	int retVal{};
-	auto pos = arg.find(minSecondsSeperator);
+	std::pair<std::string, std::string> retVal{};
+	auto pos = arg.find(c);
 	if (pos != std::string::npos)
 	{
-		std::string min = arg.substr(0, pos);
-		std::string sec = arg.substr(pos + 1);
-		retVal = 60 * std::stoi(min) + std::stoi(sec);
+		retVal.first = arg.substr(0, pos);
+		retVal.second = arg.substr(pos + 1);
 	}
+	return retVal;	
+}
 
-	return retVal;
+bool isValidTimeFormat(const std::string& arg)
+{
+	//regular expression to match HH:MM
+	std::regex hhmm("([01]?[0-9]|2[0-3]):[0-5][0-9]");
+	//Check if the input string is of the format HH:MM
+	return std::regex_match(arg, hhmm);
+}
+
+//class methods definitions
+int TimeIntervals::HHMMToInt(const std::string &arg)
+{
+	auto val = splitString(arg, minSecondsSeperator);
+	return 60 * std::stoi(val.first) + std::stoi(val.second);
+	
 }
 std::string TimeIntervals::intToHHMM(int arg)
 {
-	if (arg < 0)
+	if (arg < 0 || arg >= NoOfTimePoints)
 	{
-		//convert it to "";
+		//convert values outside the range of [00:23:59] hours to empty string";
 		return {};
-
 	}
 	std::string retVal{};
 	retVal.reserve(6);
@@ -45,14 +59,8 @@ void TimeIntervals::readFromFile(const std::string &inputFile)
 			std::string entry, exit;
 			while (std::getline(f, line))
 			{
-				auto pos = line.find(inputValSeperator);
-				if (pos != std::string::npos)
-				{
-					entry = line.substr(0, pos);
-					exit = line.substr(pos + 1);
-					//addEntryExit(entry, exit);
-					entryExits.push_back(std::make_pair(entry, exit));
-				}
+				auto val = splitString(line, inputValSeperator);
+				m_entryExits.emplace_back(val.first,val.second);
 			}
 		}
 		
@@ -62,7 +70,6 @@ void TimeIntervals::readFromFile(const std::string &inputFile)
 			throw e;
 		}
 		f.close();
-
 	}
 
 }
@@ -70,16 +77,38 @@ void TimeIntervals::readFromFile(const std::string &inputFile)
 void TimeIntervals::calculateFrequencies()
 {
 
-	for (auto & obj : entryExits)
+	size_t total = m_entryExits.size();
+	for (size_t i=0; i < total; ++i)
 	{
-		int entryInt = HHMMToInt(obj.first);
-		int exitInt = HHMMToInt(obj.second);
-		
-		//mark the frequencies
-		for (auto i = entryInt; i <= exitInt; ++i)
+		auto &obj = m_entryExits[i];
+		//add only those time stamps which are in valid HH:MM format
+		auto entryTimeValid = isValidTimeFormat(obj.first);
+		auto exitTimeValid = isValidTimeFormat(obj.second);
+		if (entryTimeValid && exitTimeValid)
 		{
-			++freq[i];
+			int entryInt = HHMMToInt(obj.first);
+			int exitInt = HHMMToInt(obj.second);
+			
+			if (entryInt <= exitInt)
+			{
+				//mark the frequencies
+				for (auto i = entryInt; i <= exitInt; ++i)
+				{
+					++m_freq[i];
+				}
+			}
+			else
+			{
+				//add the enry as invalid one
+				m_invalidEntryExits.push_back(i);
+			}
 		}
+		else
+		{
+			//add the enry as invalid one
+			m_invalidEntryExits.push_back(i);
+		}
+		
 	}
 }
 
@@ -93,19 +122,29 @@ std::pair< std::pair<std::string, std::string>, size_t > TimeIntervals::findMaxI
 	int maxEnd = -1;
 	int prevTimePointFreq = 0;
 
-	//special case - when all elements have same frequencies
-	int firstVal = freq[0];
-	if (firstVal!=0 && std::all_of(freq.begin(), freq.end(), [&](int i) { return i == firstVal; }))
+	//handle special case - when all elements have same frequencies
+	int firstVal = m_freq[0];
+	if (std::all_of(m_freq.begin(), m_freq.end(), [&](int i) { return i == firstVal; }))
 	{
-		maxStart = 0;
-		maxEnd = NoOfTimePoints-1;
+		//if the frequency is > 0 then we need to consider the whole interval as the max interval
+		if (firstVal > 0)
+		{
+			maxStart = 0;
+			maxEnd = NoOfTimePoints - 1;
+			
+		}
+		else // there are no entries for any time points hence set default value
+		{
+			maxStart = -1;
+			maxEnd = -1;
+		}
 		maxCount = firstVal;
 	}
 	else
 	{
 		for (int i = 0; i < NoOfTimePoints; ++i)
 		{
-			size_t currFreq = freq[i];
+			size_t currFreq = m_freq[i];
 			if (currFreq > maxCount)
 			{
 				maxStart = start = i;
@@ -118,16 +157,13 @@ std::pair< std::pair<std::string, std::string>, size_t > TimeIntervals::findMaxI
 				{
 					end = i;
 				}
-
 				else
 				{
 					//start again
 					start = i;
 					end = i;
 				}
-
 			}
-
 			else if (currFreq < maxCount)
 			{
 				if ((end - start) > (maxEnd - maxStart))
@@ -136,11 +172,10 @@ std::pair< std::pair<std::string, std::string>, size_t > TimeIntervals::findMaxI
 					maxEnd = end;
 				}
 			}
-
 			prevTimePointFreq = currFreq;
 		}
 	}
 
-	intervalWithMaxVal = std::make_pair(std::make_pair(intToHHMM(maxStart), intToHHMM(maxEnd)), maxCount);
-	return intervalWithMaxVal;
+	m_intervalWithMaxVal = std::make_pair(std::make_pair(intToHHMM(maxStart), intToHHMM(maxEnd)), maxCount);
+	return m_intervalWithMaxVal;
 }

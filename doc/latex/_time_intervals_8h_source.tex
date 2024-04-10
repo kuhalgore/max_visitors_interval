@@ -1,0 +1,71 @@
+\doxysection{Time\+Intervals.\+h}
+\hypertarget{_time_intervals_8h_source}{}\label{_time_intervals_8h_source}\index{src/TimeIntervals.h@{src/TimeIntervals.h}}
+\mbox{\hyperlink{_time_intervals_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <array>}\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}\ \textcolor{comment}{//for\ reading\ from\ input\ file}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sstream>}\ \textcolor{comment}{//for\ formatting\ the\ timestamp\ in\ HH::MM\ format}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iomanip>}\ \textcolor{comment}{//for\ setting\ Time\ digit\ to\ be\ 2\ digit\ format}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_time_intervals_8h_a8ad6cdd32fdc0a2c5340c8458d6521af}{NoOfTimePoints}}\ =\ 24\ *\ 60;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{_time_intervals_8h_a57903ec551904e7e3b42f242bf19725f}{inputValSeperator}}\ =\ \textcolor{charliteral}{','};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{_time_intervals_8h_a464c7ab3029a3f3068fdd0b83419d940}{minSecondsSeperator}}\ =\ \textcolor{charliteral}{':'};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_time_intervals_8h_a1afb588274f47fb0fc6856b4f5dbe721}{TimeDigitPrecision}}\ =\ 2;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_time_intervals}{TimeIntervals}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ std::vector<std::pair<std::string,\ std::string>>\ m\_entryExits\{\};}
+\DoxyCodeLine{00037\ \ \ \ \ std::vector<size\_t>\ m\_invalidEntryExits\{\};}
+\DoxyCodeLine{00038\ \ \ \ \ std::array<unsigned\ int,\ NoOfTimePoints>\ m\_freq\{\};}
+\DoxyCodeLine{00039\ \ \ \ \ std::pair<\ std::pair<std::string,\ std::string>,\ \textcolor{keywordtype}{size\_t}\ >\ m\_intervalWithMaxVal\{\};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_time_intervals_a27016c92eac5a40f55a986c713e7c0c7}{readFromFile}}(\textcolor{keyword}{const}\ std::string\ \&inputFile);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_time_intervals_a90ebe1ba81b2dc6ee7a1f83ef38867b3}{calculateFrequencies}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00073\ \ \ \ \ std::pair<\ std::pair<std::string,\ std::string>,\ \textcolor{keywordtype}{size\_t}\ >\ \mbox{\hyperlink{class_time_intervals_ab0db3b45e15d8de01ad05e637254db3b}{findMaxIntervalAndCount}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \ \ \ \ std::pair<\ std::pair<std::string,\ std::string>,\ \textcolor{keywordtype}{size\_t}\ >\ \mbox{\hyperlink{class_time_intervals_a5822aad04a04c4d50356fac57eb2c6c9}{getIntervalWithMaxVisitors}}()\ \{\ \textcolor{keywordflow}{return}\ m\_intervalWithMaxVal;\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_time_intervals_aaeadc79aa9cfa076367882118507eb23}{setEntryExits}}(std::vector<std::pair<std::string,\ std::string>>\ \&\ arg)}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&\ obj\ :\ arg)}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ m\_entryExits.emplace\_back(obj.first,\ obj.second);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00100\ \ \ \ \ std::vector<std::pair<std::string,\ std::string>>\ \mbox{\hyperlink{class_time_intervals_abde41d3d58949da35ad16ddfebde34a6}{getEntryExits}}()}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_entryExits;}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::vector<size\_t>\ \mbox{\hyperlink{class_time_intervals_a0911ebc233953431afe8a42e18b5ab89}{getInvalidEntryExitsPositions}}()\ \{\ \textcolor{keywordflow}{return}\ m\_invalidEntryExits;\ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_time_intervals_a057eaf17f210387e88146c7d6dd71bbb}{getFrequency}}(\textcolor{keyword}{const}\ std::string\ \&arg)}
+\DoxyCodeLine{00114\ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_freq[\mbox{\hyperlink{class_time_intervals_aa6992e631629e32dbbfd933eafdb1f72}{HHMMToInt}}(arg)];}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_time_intervals_aa6992e631629e32dbbfd933eafdb1f72}{HHMMToInt}}(\textcolor{keyword}{const}\ std::string\ \&arg);}
+\DoxyCodeLine{00126\ \ \ \ \ }
+\DoxyCodeLine{00133\ \ \ \ \ std::string\ \mbox{\hyperlink{class_time_intervals_a018738095eeb417c80760afac3d4a1a0}{intToHHMM}}(\textcolor{keywordtype}{int}\ arg);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{comment}{//helper\ functions}}
+\DoxyCodeLine{00141\ std::pair<std::string,\ std::string>\ \mbox{\hyperlink{_time_intervals_8h_a2f2ab74672c046d985469c578e0e1979}{splitString}}(\textcolor{keyword}{const}\ std::string\ \&\ arg,\ \textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_time_intervals_8h_a68b4690b619e052c046f19add69a59d0}{isValidTimeFormat}}(\textcolor{keyword}{const}\ std::string\&\ arg);}
+
+\end{DoxyCode}

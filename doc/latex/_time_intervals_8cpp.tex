@@ -1,0 +1,27 @@
+\doxysection{src/\+Time\+Intervals.cpp File Reference}
+\hypertarget{_time_intervals_8cpp}{}\label{_time_intervals_8cpp}\index{src/TimeIntervals.cpp@{src/TimeIntervals.cpp}}
+{\ttfamily \#include "{}Time\+Intervals.\+h"{}}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{_time_intervals_8cpp_a2f2ab74672c046d985469c578e0e1979}{split\+String}} (const std\+::string \&arg, char c)
+\item 
+bool \mbox{\hyperlink{_time_intervals_8cpp_a68b4690b619e052c046f19add69a59d0}{is\+Valid\+Time\+Format}} (const std\+::string \&arg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_time_intervals_8cpp_a68b4690b619e052c046f19add69a59d0}\label{_time_intervals_8cpp_a68b4690b619e052c046f19add69a59d0} 
+\index{TimeIntervals.cpp@{TimeIntervals.cpp}!isValidTimeFormat@{isValidTimeFormat}}
+\index{isValidTimeFormat@{isValidTimeFormat}!TimeIntervals.cpp@{TimeIntervals.cpp}}
+\doxysubsubsection{\texorpdfstring{isValidTimeFormat()}{isValidTimeFormat()}}
+{\footnotesize\ttfamily bool is\+Valid\+Time\+Format (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arg }\end{DoxyParamCaption})}
+
+This function checks if the passed arg is valid time format in HH\+:MM format std\+::regex is used inside the function to achieve the task \Hypertarget{_time_intervals_8cpp_a2f2ab74672c046d985469c578e0e1979}\label{_time_intervals_8cpp_a2f2ab74672c046d985469c578e0e1979} 
+\index{TimeIntervals.cpp@{TimeIntervals.cpp}!splitString@{splitString}}
+\index{splitString@{splitString}!TimeIntervals.cpp@{TimeIntervals.cpp}}
+\doxysubsubsection{\texorpdfstring{splitString()}{splitString()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::string, std\+::string $>$ split\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arg,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+This function splits the string based on passed separator 

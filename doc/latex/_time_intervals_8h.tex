@@ -1,0 +1,73 @@
+\doxysection{src/\+Time\+Intervals.h File Reference}
+\hypertarget{_time_intervals_8h}{}\label{_time_intervals_8h}\index{src/TimeIntervals.h@{src/TimeIntervals.h}}
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_time_intervals}{Time\+Intervals}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_time_intervals}{Time\+Intervals} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{_time_intervals_8h_a2f2ab74672c046d985469c578e0e1979}{split\+String}} (const std\+::string \&arg, char c)
+\item 
+bool \mbox{\hyperlink{_time_intervals_8h_a68b4690b619e052c046f19add69a59d0}{is\+Valid\+Time\+Format}} (const std\+::string \&arg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{_time_intervals_8h_a8ad6cdd32fdc0a2c5340c8458d6521af}{No\+Of\+Time\+Points}} = 24 \texorpdfstring{$\ast$}{*} 60
+\item 
+constexpr char \mbox{\hyperlink{_time_intervals_8h_a57903ec551904e7e3b42f242bf19725f}{input\+Val\+Seperator}} = \textquotesingle{},\textquotesingle{}
+\item 
+constexpr char \mbox{\hyperlink{_time_intervals_8h_a464c7ab3029a3f3068fdd0b83419d940}{min\+Seconds\+Seperator}} = \textquotesingle{}\+:\textquotesingle{}
+\item 
+constexpr int \mbox{\hyperlink{_time_intervals_8h_a1afb588274f47fb0fc6856b4f5dbe721}{Time\+Digit\+Precision}} = 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_time_intervals_8h_a68b4690b619e052c046f19add69a59d0}\label{_time_intervals_8h_a68b4690b619e052c046f19add69a59d0} 
+\index{TimeIntervals.h@{TimeIntervals.h}!isValidTimeFormat@{isValidTimeFormat}}
+\index{isValidTimeFormat@{isValidTimeFormat}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{isValidTimeFormat()}{isValidTimeFormat()}}
+{\footnotesize\ttfamily bool is\+Valid\+Time\+Format (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arg }\end{DoxyParamCaption})}
+
+This function checks if the passed arg is valid time format in HH\+:MM format std\+::regex is used inside the function to achieve the task \Hypertarget{_time_intervals_8h_a2f2ab74672c046d985469c578e0e1979}\label{_time_intervals_8h_a2f2ab74672c046d985469c578e0e1979} 
+\index{TimeIntervals.h@{TimeIntervals.h}!splitString@{splitString}}
+\index{splitString@{splitString}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{splitString()}{splitString()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::string, std\+::string $>$ split\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arg,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+This function splits the string based on passed separator 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_time_intervals_8h_a57903ec551904e7e3b42f242bf19725f}\label{_time_intervals_8h_a57903ec551904e7e3b42f242bf19725f} 
+\index{TimeIntervals.h@{TimeIntervals.h}!inputValSeperator@{inputValSeperator}}
+\index{inputValSeperator@{inputValSeperator}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{inputValSeperator}{inputValSeperator}}
+{\footnotesize\ttfamily constexpr char input\+Val\+Seperator = \textquotesingle{},\textquotesingle{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{_time_intervals_8h_a464c7ab3029a3f3068fdd0b83419d940}\label{_time_intervals_8h_a464c7ab3029a3f3068fdd0b83419d940} 
+\index{TimeIntervals.h@{TimeIntervals.h}!minSecondsSeperator@{minSecondsSeperator}}
+\index{minSecondsSeperator@{minSecondsSeperator}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{minSecondsSeperator}{minSecondsSeperator}}
+{\footnotesize\ttfamily constexpr char min\+Seconds\+Seperator = \textquotesingle{}\+:\textquotesingle{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{_time_intervals_8h_a8ad6cdd32fdc0a2c5340c8458d6521af}\label{_time_intervals_8h_a8ad6cdd32fdc0a2c5340c8458d6521af} 
+\index{TimeIntervals.h@{TimeIntervals.h}!NoOfTimePoints@{NoOfTimePoints}}
+\index{NoOfTimePoints@{NoOfTimePoints}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{NoOfTimePoints}{NoOfTimePoints}}
+{\footnotesize\ttfamily constexpr int No\+Of\+Time\+Points = 24 \texorpdfstring{$\ast$}{*} 60\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{_time_intervals_8h_a1afb588274f47fb0fc6856b4f5dbe721}\label{_time_intervals_8h_a1afb588274f47fb0fc6856b4f5dbe721} 
+\index{TimeIntervals.h@{TimeIntervals.h}!TimeDigitPrecision@{TimeDigitPrecision}}
+\index{TimeDigitPrecision@{TimeDigitPrecision}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{TimeDigitPrecision}{TimeDigitPrecision}}
+{\footnotesize\ttfamily constexpr int Time\+Digit\+Precision = 2\hspace{0.3cm}{\ttfamily [constexpr]}}
+

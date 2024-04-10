@@ -1,0 +1,133 @@
+\doxysection{Time\+Intervals Class Reference}
+\hypertarget{class_time_intervals}{}\label{class_time_intervals}\index{TimeIntervals@{TimeIntervals}}
+
+
+\doxylink{class_time_intervals}{Time\+Intervals} class.  
+
+
+
+
+{\ttfamily \#include $<$Time\+Intervals.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_time_intervals_a27016c92eac5a40f55a986c713e7c0c7}{read\+From\+File}} (const std\+::string \&input\+File)
+\item 
+void \mbox{\hyperlink{class_time_intervals_a90ebe1ba81b2dc6ee7a1f83ef38867b3}{calculate\+Frequencies}} ()
+\item 
+std\+::pair$<$ std\+::pair$<$ std\+::string, std\+::string $>$, size\+\_\+t $>$ \mbox{\hyperlink{class_time_intervals_ab0db3b45e15d8de01ad05e637254db3b}{find\+Max\+Interval\+And\+Count}} ()
+\item 
+std\+::pair$<$ std\+::pair$<$ std\+::string, std\+::string $>$, size\+\_\+t $>$ \mbox{\hyperlink{class_time_intervals_a5822aad04a04c4d50356fac57eb2c6c9}{get\+Interval\+With\+Max\+Visitors}} ()
+\item 
+void \mbox{\hyperlink{class_time_intervals_aaeadc79aa9cfa076367882118507eb23}{set\+Entry\+Exits}} (std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \&arg)
+\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{class_time_intervals_abde41d3d58949da35ad16ddfebde34a6}{get\+Entry\+Exits}} ()
+\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{class_time_intervals_a0911ebc233953431afe8a42e18b5ab89}{get\+Invalid\+Entry\+Exits\+Positions}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{class_time_intervals_a057eaf17f210387e88146c7d6dd71bbb}{get\+Frequency}} (const std\+::string \&arg)
+\item 
+int \mbox{\hyperlink{class_time_intervals_aa6992e631629e32dbbfd933eafdb1f72}{HHMMTo\+Int}} (const std\+::string \&arg)
+\item 
+std\+::string \mbox{\hyperlink{class_time_intervals_a018738095eeb417c80760afac3d4a1a0}{int\+To\+HHMM}} (int arg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_time_intervals}{Time\+Intervals} class. 
+
+This class can read visiting times from an input file. The path of the input file is given as an argument to its \doxylink{class_time_intervals_a27016c92eac5a40f55a986c713e7c0c7}{read\+From\+File()} method. The input file is a text file, where every line is the entering and leaving time values of one visitor separated with commas. For example\+: 10\+:15,14\+:20 11\+:10,15\+:22 Visiting times can be in a random order and not sorted by entering or leaving time values. method \+: \doxylink{class_time_intervals_a27016c92eac5a40f55a986c713e7c0c7}{read\+From\+File(const std\+::string \& file\+Name)};
+
+Using the data from the input file, this class can find the time period, when there were the most number of visitors and how many visitors were in the museum in that time period. method \+: \doxylink{class_time_intervals_ab0db3b45e15d8de01ad05e637254db3b}{find\+Max\+Interval\+And\+Count()};
+
+This class can find the results found in the previous step to the standard output in the form $<$start time$>$-\/$<$end time$>$;$<$number of visitors$>$. For example\+: 11\+:10-\/14\+:20;2 method\+: \doxylink{class_time_intervals_a5822aad04a04c4d50356fac57eb2c6c9}{get\+Interval\+With\+Max\+Visitors()}; 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_time_intervals_a90ebe1ba81b2dc6ee7a1f83ef38867b3}\label{class_time_intervals_a90ebe1ba81b2dc6ee7a1f83ef38867b3} 
+\index{TimeIntervals@{TimeIntervals}!calculateFrequencies@{calculateFrequencies}}
+\index{calculateFrequencies@{calculateFrequencies}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{calculateFrequencies()}{calculateFrequencies()}}
+{\footnotesize\ttfamily void Time\+Intervals\+::calculate\+Frequencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function calculates frequecncy for each time point for each element in m\+\_\+entry\+Exits These frequencies are stored in an array of 24\texorpdfstring{$\ast$}{*}60 elements element in the entry\+Exists is considered only if $<$start time$>$ and $<$end time$>$ both are in valid HH\+:MM format Otherwise that element is skipped (an approriate error is printed on std\+::err for that element) \Hypertarget{class_time_intervals_ab0db3b45e15d8de01ad05e637254db3b}\label{class_time_intervals_ab0db3b45e15d8de01ad05e637254db3b} 
+\index{TimeIntervals@{TimeIntervals}!findMaxIntervalAndCount@{findMaxIntervalAndCount}}
+\index{findMaxIntervalAndCount@{findMaxIntervalAndCount}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{findMaxIntervalAndCount()}{findMaxIntervalAndCount()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::pair$<$ std\+::string, std\+::string $>$, size\+\_\+t $>$ Time\+Intervals\+::find\+Max\+Interval\+And\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function iterates over each frequency and keep a track if maximum frequency and correpsponding start and end points (max\+\_\+start and max\+\_\+end) At the end, it populates those values in m\+\_\+interval\+With\+Max\+Val.
+
+This function handles following corner cases 1) frequency of each time point is same and a nonzero value 2) frequency of each time point is same and is zero \Hypertarget{class_time_intervals_abde41d3d58949da35ad16ddfebde34a6}\label{class_time_intervals_abde41d3d58949da35ad16ddfebde34a6} 
+\index{TimeIntervals@{TimeIntervals}!getEntryExits@{getEntryExits}}
+\index{getEntryExits@{getEntryExits}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{getEntryExits()}{getEntryExits()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ Time\+Intervals\+::get\+Entry\+Exits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This getter function used from unit tests and from main function to display a warning in case entry and exit times were not in valid HH\+:MM format \Hypertarget{class_time_intervals_a057eaf17f210387e88146c7d6dd71bbb}\label{class_time_intervals_a057eaf17f210387e88146c7d6dd71bbb} 
+\index{TimeIntervals@{TimeIntervals}!getFrequency@{getFrequency}}
+\index{getFrequency@{getFrequency}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{getFrequency()}{getFrequency()}}
+{\footnotesize\ttfamily size\+\_\+t Time\+Intervals\+::get\+Frequency (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This getter function used from unit tests only-\/ \Hypertarget{class_time_intervals_a5822aad04a04c4d50356fac57eb2c6c9}\label{class_time_intervals_a5822aad04a04c4d50356fac57eb2c6c9} 
+\index{TimeIntervals@{TimeIntervals}!getIntervalWithMaxVisitors@{getIntervalWithMaxVisitors}}
+\index{getIntervalWithMaxVisitors@{getIntervalWithMaxVisitors}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{getIntervalWithMaxVisitors()}{getIntervalWithMaxVisitors()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::pair$<$ std\+::string, std\+::string $>$, size\+\_\+t $>$ Time\+Intervals\+::get\+Interval\+With\+Max\+Visitors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This function returns the interval with max visitors calculated in \doxylink{class_time_intervals_ab0db3b45e15d8de01ad05e637254db3b}{find\+Max\+Interval\+And\+Count()} as a pair. first element of the pair is \texorpdfstring{$<$}{<}start time, end time\texorpdfstring{$>$}{>} second element of the pair os value of max visitors \Hypertarget{class_time_intervals_a0911ebc233953431afe8a42e18b5ab89}\label{class_time_intervals_a0911ebc233953431afe8a42e18b5ab89} 
+\index{TimeIntervals@{TimeIntervals}!getInvalidEntryExitsPositions@{getInvalidEntryExitsPositions}}
+\index{getInvalidEntryExitsPositions@{getInvalidEntryExitsPositions}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{getInvalidEntryExitsPositions()}{getInvalidEntryExitsPositions()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ Time\+Intervals\+::get\+Invalid\+Entry\+Exits\+Positions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This getter function used for printing invalid enry exit times on std\+::err \Hypertarget{class_time_intervals_aa6992e631629e32dbbfd933eafdb1f72}\label{class_time_intervals_aa6992e631629e32dbbfd933eafdb1f72} 
+\index{TimeIntervals@{TimeIntervals}!HHMMToInt@{HHMMToInt}}
+\index{HHMMToInt@{HHMMToInt}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{HHMMToInt()}{HHMMToInt()}}
+{\footnotesize\ttfamily int Time\+Intervals\+::\+HHMMTo\+Int (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arg }\end{DoxyParamCaption})}
+
+This function converts the time value in HH\+:MM string format to Int using logic -\/ 60\texorpdfstring{$\ast$}{*}\+HH + MM (number of minutes since 00\+:00) 
+\begin{DoxyParams}{Parameters}
+{\em arg} & -\/ 24 hours time in HH\+:MM format \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_time_intervals_a018738095eeb417c80760afac3d4a1a0}\label{class_time_intervals_a018738095eeb417c80760afac3d4a1a0} 
+\index{TimeIntervals@{TimeIntervals}!intToHHMM@{intToHHMM}}
+\index{intToHHMM@{intToHHMM}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{intToHHMM()}{intToHHMM()}}
+{\footnotesize\ttfamily std\+::string Time\+Intervals\+::int\+To\+HHMM (\begin{DoxyParamCaption}\item[{int}]{arg }\end{DoxyParamCaption})}
+
+This function converts the time value in int to HH\+:MM string format using logic return\+Val = \texorpdfstring{$<$}{<}arg/60\texorpdfstring{$>$}{>}\+:\texorpdfstring{$<$}{<}arg-\/arg/60\texorpdfstring{$>$}{>} 
+\begin{DoxyParams}{Parameters}
+{\em arg} & -\/ 24 hours time in integer format with value same as no of minutes since 00\+:00 (60\texorpdfstring{$\ast$}{*}\+HH + MM) note -\/ if arg is not in the range of \mbox{[}0, 24\texorpdfstring{$\ast$}{*}60-\/1\mbox{]} , it return empty string \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_time_intervals_a27016c92eac5a40f55a986c713e7c0c7}\label{class_time_intervals_a27016c92eac5a40f55a986c713e7c0c7} 
+\index{TimeIntervals@{TimeIntervals}!readFromFile@{readFromFile}}
+\index{readFromFile@{readFromFile}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{readFromFile()}{readFromFile()}}
+{\footnotesize\ttfamily void Time\+Intervals\+::read\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input\+File }\end{DoxyParamCaption})}
+
+This function reads the input file 
+\begin{DoxyParams}{Parameters}
+{\em input\+File} & -\/ text file containing in and out timings of visitors in below format ~\newline
+10\+:15,14\+:20 ~\newline
+11\+:10,15\+:22 ~\newline
+9\+:58,11\+:14 ~\newline
+ The data is stored internally in a vector of pairs m\+\_\+entry\+Exits \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_time_intervals_aaeadc79aa9cfa076367882118507eb23}\label{class_time_intervals_aaeadc79aa9cfa076367882118507eb23} 
+\index{TimeIntervals@{TimeIntervals}!setEntryExits@{setEntryExits}}
+\index{setEntryExits@{setEntryExits}!TimeIntervals@{TimeIntervals}}
+\doxysubsubsection{\texorpdfstring{setEntryExits()}{setEntryExits()}}
+{\footnotesize\ttfamily void Time\+Intervals\+::set\+Entry\+Exits (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ std\+::string, std\+::string $>$ $>$ \&}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This setter function used from unit tests only-\/ In actual flow, m\+\_\+entry\+Exits is populated by \doxylink{class_time_intervals_a27016c92eac5a40f55a986c713e7c0c7}{read\+From\+File()} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_time_intervals_8h}{Time\+Intervals.\+h}}\item 
+src/\mbox{\hyperlink{_time_intervals_8cpp}{Time\+Intervals.\+cpp}}\end{DoxyCompactItemize}
