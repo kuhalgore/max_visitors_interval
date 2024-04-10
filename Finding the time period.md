@@ -12,7 +12,6 @@ For example if the file contains this:
 then output will be 
 11:10-11:14;3
 
-
 logic:
 we know that the time is entered in HH:MM format,
 Therefore if we divide the whole day (24 hours) into minutes, 
