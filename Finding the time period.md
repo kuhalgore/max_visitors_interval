@@ -9,7 +9,7 @@ This filename needs to be passed into the program as a first argument.
 
 This program prints the interval in below format.  
 
-<start time>-<end time>;<number of visitors>
+start_time-end_time;number_of_visitors
 
 **For example,**
 If the file contains this:  
@@ -29,8 +29,8 @@ Then there will be 24*60 = 1440 distinct time points.
 ### Populating frequency for each time point
 We have taken an array of 1440 elements where each element represents  
 a frequency of that time point appearing in any of the intervals from the input file.  
-We traverse the input file line by line - on each line we get [start time, end time].  
-For every point between start time and end time (both inclusive),  
+We traverse the input file line by line - on each line we get [start_time, end_time].  
+For every point between start_time and end_time (both inclusive),  
 we increment the frequency for that point.  
 
 **Space complexity:**
@@ -57,7 +57,7 @@ If there is more than one such group, then we will consider the group where
 difference between last and first element is largest.  
 This way we guarantee that always largest interval with maximum visitors is found.  
 
-** Time complexity:**
+**Time complexity:**
 K*1440 comparisons + at max 1440 comparisons in find_if applied on frequencies  
 = O(1)  
 ***Note*** - Here is K > 0 is some constant representing no of comparisons per iteration, 

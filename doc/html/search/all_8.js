@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['setentryexits_0',['setEntryExits',['../class_time_intervals.html#aaeadc79aa9cfa076367882118507eb23',1,'TimeIntervals']]],
-  ['splitstring_1',['splitString',['../_time_intervals_8cpp.html#a2f2ab74672c046d985469c578e0e1979',1,'splitString(const std::string &amp;arg, char c):&#160;TimeIntervals.cpp'],['../_time_intervals_8h.html#a2f2ab74672c046d985469c578e0e1979',1,'splitString(const std::string &amp;arg, char c):&#160;TimeIntervals.cpp']]]
+  ['main_0',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
+  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['max_20value_2',['finding the interval with max value',['../index.html#autotoc_md3',1,'']]],
+  ['maximum_20visitors_3',['Finding interval of the day with maximum visitors',['../index.html',1,'']]],
+  ['minsecondsseperator_4',['minSecondsSeperator',['../_time_intervals_8h.html#a464c7ab3029a3f3068fdd0b83419d940',1,'TimeIntervals.h']]]
 ];

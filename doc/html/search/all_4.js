@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['inputvalseperator_0',['inputValSeperator',['../_time_intervals_8h.html#a57903ec551904e7e3b42f242bf19725f',1,'TimeIntervals.h']]],
-  ['inttohhmm_1',['intToHHMM',['../class_time_intervals.html#a018738095eeb417c80760afac3d4a1a0',1,'TimeIntervals']]],
-  ['isvalidtimeformat_2',['isValidTimeFormat',['../_time_intervals_8cpp.html#a68b4690b619e052c046f19add69a59d0',1,'isValidTimeFormat(const std::string &amp;arg):&#160;TimeIntervals.cpp'],['../_time_intervals_8h.html#a68b4690b619e052c046f19add69a59d0',1,'isValidTimeFormat(const std::string &amp;arg):&#160;TimeIntervals.cpp']]]
+  ['getentryexits_0',['getEntryExits',['../class_time_intervals.html#abde41d3d58949da35ad16ddfebde34a6',1,'TimeIntervals']]],
+  ['getfrequency_1',['getFrequency',['../class_time_intervals.html#a057eaf17f210387e88146c7d6dd71bbb',1,'TimeIntervals']]],
+  ['getintervalwithmaxvisitors_2',['getIntervalWithMaxVisitors',['../class_time_intervals.html#a5822aad04a04c4d50356fac57eb2c6c9',1,'TimeIntervals']]],
+  ['getinvalidentryexitspositions_3',['getInvalidEntryExitsPositions',['../class_time_intervals.html#a0911ebc233953431afe8a42e18b5ab89',1,'TimeIntervals']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['number_20of_20visitors_0',['Finding time interval with maximum number of visitors',['../index.html',1,'']]]
+  ['maximum_20visitors_0',['Finding interval of the day with maximum visitors',['../index.html',1,'']]]
 ];

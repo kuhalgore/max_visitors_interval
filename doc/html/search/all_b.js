@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unittests_2ecpp_0',['UnitTests.cpp',['../_unit_tests_8cpp.html',1,'']]]
+  ['point_0',['Populating frequency for each time point',['../index.html#autotoc_md2',1,'']]],
+  ['populating_20frequency_20for_20each_20time_20point_1',['Populating frequency for each time point',['../index.html#autotoc_md2',1,'']]]
 ];

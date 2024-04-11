@@ -23,9 +23,11 @@
 \item 
 \mbox{\hyperlink{_unit_tests_8cpp_a829153d84278d0eb7a902dc9b4a76ca1}{TEST\+\_\+\+CASE}} ("{}test 08"{}, "{}max visitors should be calculated as zero when entry and exit times are in incorrect format"{})
 \item 
-\mbox{\hyperlink{_unit_tests_8cpp_ab0dae8023deef31bb7ae98ccbb09f47c}{TEST\+\_\+\+CASE}} ("{}test 09"{}, "{}helper function \mbox{\hyperlink{_time_intervals_8cpp_a2f2ab74672c046d985469c578e0e1979}{split\+String}} should split the string correclty based on passed arg and a sepearator char"{})
+\mbox{\hyperlink{_unit_tests_8cpp_a2c988c04071a0e44cc718fb3d9d8d5f6}{TEST\+\_\+\+CASE}} ("{}test 09"{}, "{}get\+Invalid\+Entry\+Exits\+Positions should indicate invalid time intervals if any"{})
 \item 
-\mbox{\hyperlink{_unit_tests_8cpp_a4699f1fc9737c0be07018ea55c87d21e}{TEST\+\_\+\+CASE}} ("{}test 10"{}, "{}helper function \mbox{\hyperlink{_time_intervals_8cpp_a68b4690b619e052c046f19add69a59d0}{is\+Valid\+Time\+Format}} shuld return true when the arg passed is in valid HH\+:\+MM format"{})
+\mbox{\hyperlink{_unit_tests_8cpp_ab8ee8c64fbb8328a4714e8896299dcff}{TEST\+\_\+\+CASE}} ("{}test 10"{}, "{}helper function \mbox{\hyperlink{_time_intervals_8cpp_a2f2ab74672c046d985469c578e0e1979}{split\+String}} should split the string correclty based on passed arg and a sepearator char"{})
+\item 
+\mbox{\hyperlink{_unit_tests_8cpp_a45279d508ff0699044ce4c6e89cfb2d8}{TEST\+\_\+\+CASE}} ("{}test 11"{}, "{}helper function \mbox{\hyperlink{_time_intervals_8cpp_a68b4690b619e052c046f19add69a59d0}{is\+Valid\+Time\+Format}} shuld return true when the arg passed is in valid HH\+:\+MM format"{})
 \end{DoxyCompactItemize}
 
 
@@ -33,60 +35,66 @@
 \Hypertarget{_unit_tests_8cpp_aee542aea8f460a412beca502ba92a6dd}\label{_unit_tests_8cpp_aee542aea8f460a412beca502ba92a6dd} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/11]}}
 {\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 01"{}}]{,  }\item[{"{}finding max visitors interval with 3 overlapping intervals"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{_unit_tests_8cpp_a0c8a0d993a936822d000e215536f3a57}\label{_unit_tests_8cpp_a0c8a0d993a936822d000e215536f3a57} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/11]}}
 {\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 02"{}}]{,  }\item[{"{}max visitors calculated as zero when there are no entry and exits"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{_unit_tests_8cpp_a80c53f7d029965027dd5c09632f786e5}\label{_unit_tests_8cpp_a80c53f7d029965027dd5c09632f786e5} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/11]}}
 {\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 03"{}}]{,  }\item[{"{}finding max visitors interval with 2 overlapping and 2 non-\/overlapping intervals"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{_unit_tests_8cpp_a195831300de23e8bef61c97844583f7f}\label{_unit_tests_8cpp_a195831300de23e8bef61c97844583f7f} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/11]}}
 {\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 04"{}}]{,  }\item[{"{}finding max visitors when entry exit intervals are in entered in reverse order according to entry times"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{_unit_tests_8cpp_a318f2c6d59f8606a0fcd05d002792122}\label{_unit_tests_8cpp_a318f2c6d59f8606a0fcd05d002792122} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [5/11]}}
 {\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 05"{}}]{,  }\item[{"{}finding max visitors when there are 2 intervals with same frequency of visitors"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{_unit_tests_8cpp_a8688323a887a8ac1c1bb0baecb77fa30}\label{_unit_tests_8cpp_a8688323a887a8ac1c1bb0baecb77fa30} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [6/11]}}
 {\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 06"{}}]{,  }\item[{"{}finding max visitors when there entry and exit times contains time in single digit and when it is padded with zero"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{_unit_tests_8cpp_a43dcc65696ae91f9b14d00f6503c1a45}\label{_unit_tests_8cpp_a43dcc65696ae91f9b14d00f6503c1a45} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [7/11]}}
 {\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 07"{}}]{,  }\item[{"{}finding max visitors when all 5 visitors eneter at 00 and leave at 23\+:59"{}}]{ }\end{DoxyParamCaption})}
 
 \Hypertarget{_unit_tests_8cpp_a829153d84278d0eb7a902dc9b4a76ca1}\label{_unit_tests_8cpp_a829153d84278d0eb7a902dc9b4a76ca1} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [8/11]}}
 {\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 08"{}}]{,  }\item[{"{}max visitors should be calculated as zero when entry and exit times are in incorrect format"{}}]{ }\end{DoxyParamCaption})}
 
-\Hypertarget{_unit_tests_8cpp_ab0dae8023deef31bb7ae98ccbb09f47c}\label{_unit_tests_8cpp_ab0dae8023deef31bb7ae98ccbb09f47c} 
+\Hypertarget{_unit_tests_8cpp_a2c988c04071a0e44cc718fb3d9d8d5f6}\label{_unit_tests_8cpp_a2c988c04071a0e44cc718fb3d9d8d5f6} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
-{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 09"{}}]{,  }\item[{"{}helper function \mbox{\hyperlink{_time_intervals_8cpp_a2f2ab74672c046d985469c578e0e1979}{split\+String}} should split the string correclty based on passed arg and a sepearator char"{}}]{ }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [9/11]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 09"{}}]{,  }\item[{"{}get\+Invalid\+Entry\+Exits\+Positions should indicate invalid time intervals if any"{}}]{ }\end{DoxyParamCaption})}
 
-\Hypertarget{_unit_tests_8cpp_a4699f1fc9737c0be07018ea55c87d21e}\label{_unit_tests_8cpp_a4699f1fc9737c0be07018ea55c87d21e} 
+\Hypertarget{_unit_tests_8cpp_ab8ee8c64fbb8328a4714e8896299dcff}\label{_unit_tests_8cpp_ab8ee8c64fbb8328a4714e8896299dcff} 
 \index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
 \index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
-\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
-{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 10"{}}]{,  }\item[{"{}helper function \mbox{\hyperlink{_time_intervals_8cpp_a68b4690b619e052c046f19add69a59d0}{is\+Valid\+Time\+Format}} shuld return true when the arg passed is in valid HH\+:\+MM format"{}}]{ }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [10/11]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 10"{}}]{,  }\item[{"{}helper function \mbox{\hyperlink{_time_intervals_8cpp_a2f2ab74672c046d985469c578e0e1979}{split\+String}} should split the string correclty based on passed arg and a sepearator char"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{_unit_tests_8cpp_a45279d508ff0699044ce4c6e89cfb2d8}\label{_unit_tests_8cpp_a45279d508ff0699044ce4c6e89cfb2d8} 
+\index{UnitTests.cpp@{UnitTests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!UnitTests.cpp@{UnitTests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [11/11]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test 11"{}}]{,  }\item[{"{}helper function \mbox{\hyperlink{_time_intervals_8cpp_a68b4690b619e052c046f19add69a59d0}{is\+Valid\+Time\+Format}} shuld return true when the arg passed is in valid HH\+:\+MM format"{}}]{ }\end{DoxyParamCaption})}
 

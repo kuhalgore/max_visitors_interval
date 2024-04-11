@@ -1,61 +1,82 @@
-\chapter{max\+\_\+visitors}
-\hypertarget{index}{}\label{index}\index{max\_visitors@{max\_visitors}}
+\chapter{Finding interval of the day with maximum visitors}
+\hypertarget{index}{}\label{index}\index{Finding interval of the day with maximum visitors@{Finding interval of the day with maximum visitors}}
 \label{index_md__finding_01the_01time_01period}%
 \Hypertarget{index_md__finding_01the_01time_01period}%
- This is a C++ program to find time interval of the day with maximum number of visitors present in the museum. ~\newline
-Visiting times are given in a file in comma separated format. This filename can be passed into the program as a first argument. ~\newline
-This program prints the interval in below format. $<$start time$>$-\/$<$end time$>$;$<$number of visitors$>$. ~\newline
-For example if the file contains this\+: ~\newline
-10\+:15,14\+:20 ~\newline
-11\+:10,15\+:22 ~\newline
-09\+:58,11\+:14 ~\newline
-then output will be ~\newline
-11\+:10-\/11\+:14;3 ~\newline
-~\newline
-{\bfseries{Logic\+: ============================= }}~\newline
-It is assumed that time is represented in HH\+:MM format, ~\newline
-If there is any entry where time is not in HH\+:MM format, that particular entry is ignored (Corresponding info is logged on std\+:err). Now, once we know that the time is in HH\+:MM format, Therefore if we divide the whole day (24 hours) into minutes, then there will be 24\texorpdfstring{$\ast$}{*}60 = 1440 distinct time points. ~\newline
- {\bfseries{{\itshape  -\/ populating frequency for each time point \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} }}} ~\newline
-We have taken an array of 1440 elements where each element represents a frequency of that time point appearing in any of the intervals from the input file. We traverse the input file line by line -\/ on each line we get \mbox{[}start time, end time\mbox{]}. For every point between start time and end time (both inclusive), we increment the frequency for that point.~\newline
- {\bfseries{{\itshape space complexity\+: \texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}}}} ~\newline
-n entry and end points are store in a vector, so space complexity would be n + 1440 elements for storing frequencies = O(n) ~\newline
- {\bfseries{{\itshape Time complexity\+: \texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}}}} ~\newline
-Being stored in contiguous memory (array), we can access each element in constant time with its index.~\newline
-Each element can be increased at max n times, we will need 1440\texorpdfstring{$\ast$}{*}n operations ~\newline
-(considering hypothetical case where all visitors entered and exited at same time) ~\newline
-Also n insertions in a vector to store the entry and exit pairs ~\newline
-Hence the value would be 1440\texorpdfstring{$\ast$}{*}n + n = O(n) ~\newline
-~\newline
-{\bfseries{{\itshape  -\/ finding the interval with max value \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}}} ~\newline
-Using array to store frequencies of the time points makes sure that all the time points are stored in ascending order. To find the interval which contains maximum number of visitors, we iterate over each element of the array and find group of adjacent elements with same value (same frequency) out of all such groups we take the one with maximum value. say (start, end, frequency). ~\newline
-If there is more than one such group, then we will consider the group where difference between last and first element is largest. This way we guarantee that always largest interval with maximum visitors is found. ~\newline
-{\bfseries{{\itshape Time complexity \+: \texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}}}}~\newline
-K\texorpdfstring{$\ast$}{*}1440 comparisons + at max 1440 comparisons in find\+\_\+if applied on frequencies = O(1);
+ This is a C++ program to find time interval of the day with maximum number of visitors present in the museum.
 
-~\newline
-{\itshape Note} -\/ here is K \texorpdfstring{$>$}{>} 0 is some constant representing no of comparisons per iteration, see find\+Max\+Interval\+And\+Count for more details ~\newline
-~\newline
-{\bfseries{Example, =============================}}~\newline
+Visiting times are given in a file in comma separated format. This filename needs to be passed into the program as a first argument. ~\newline
+ {\itshape {\bfseries{Note}}} -\/ If no argument is passed, the program will run the unit test cases, see Unit Testing section
+
+This program prints the interval in below format. ~\newline
+
+
+start\+\_\+time-\/end\+\_\+time;number\+\_\+of\+\_\+visitors
+
+{\bfseries{For example,}} If the file contains this\+: ~\newline
+ 10\+:15,14\+:20 ~\newline
+ 11\+:10,15\+:22 ~\newline
+ 09\+:58,11\+:14 ~\newline
+ Then output will be ~\newline
+ 11\+:10-\/11\+:14;3 ~\newline
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Logic}{Logic}}\label{index_autotoc_md1}
+It is assumed that time is represented in HH\+:MM format, ~\newline
+ If there is any entry where time is not in HH\+:MM format, that particular entry is ignored (Corresponding info is logged on std\+:err). ~\newline
+ Now, once we know that the time is in HH\+:MM format, therefore if we divide the whole day (24 hours) into minutes, ~\newline
+ Then there will be 24\texorpdfstring{$\ast$}{*}60 = 1440 distinct time points. ~\newline
+\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Populating frequency for each time point}{Populating frequency for each time point}}\label{index_autotoc_md2}
+We have taken an array of 1440 elements where each element represents ~\newline
+ a frequency of that time point appearing in any of the intervals from the input file. ~\newline
+ We traverse the input file line by line -\/ on each line we get \mbox{[}start\+\_\+time, end\+\_\+time\mbox{]}. ~\newline
+ For every point between start\+\_\+time and end\+\_\+time (both inclusive), ~\newline
+ we increment the frequency for that point. ~\newline
+
+
+{\bfseries{Space complexity\+:}} n entry and end points are store in a vector, so space complexity would be ~\newline
+ n + 1440 elements for storing frequencies = O(n) ~\newline
+
+
+{\bfseries{Time complexity\+:}} Being stored in contiguous memory (array), we can access each element in constant time with its index. ~\newline
+ Each element can be increased at max n times, we will need 1440\texorpdfstring{$\ast$}{*}n operations ~\newline
+ (considering hypothetical case where all visitors entered and exited at same time) ~\newline
+ Also n insertions in a vector to store the entry and exit pairs ~\newline
+ Hence the value would be 1440\texorpdfstring{$\ast$}{*}n + n = O(n) ~\newline
+\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{finding the interval with max value}{finding the interval with max value}}\label{index_autotoc_md3}
+Using array to store frequencies of the time points makes sure that all the time points are stored in ascending order. ~\newline
+ To find the interval which contains maximum number of visitors, ~\newline
+ we iterate over each element of the array and find a group of adjacent elements ~\newline
+ with same value (same frequency). Out of all such groups we take the one with maximum value. ~\newline
+ say (start, end, frequency). ~\newline
+
+
+If there is more than one such group, then we will consider the group where ~\newline
+ difference between last and first element is largest. ~\newline
+ This way we guarantee that always largest interval with maximum visitors is found. ~\newline
+
+
+{\bfseries{Time complexity\+:}} K\texorpdfstring{$\ast$}{*}1440 comparisons + at max 1440 comparisons in find\+\_\+if applied on frequencies ~\newline
+ = O(1) ~\newline
+ {\itshape {\bfseries{Note}}} -\/ Here is K \texorpdfstring{$>$}{>} 0 is some constant representing no of comparisons per iteration, see \doxylink{class_time_intervals_ab0db3b45e15d8de01ad05e637254db3b}{Time\+Intervals\+::find\+Max\+Interval\+And\+Count} for more details ~\newline
+\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Example}{Example}}\label{index_autotoc_md4}
 consider below input file ~\newline
-input file\+: ~\newline
-09\+:58,11\+:14 ~\newline
-10\+:15,11\+:10 ~\newline
-11\+:12,15\+:22 ~\newline
-11\+:19,12\+:15 ~\newline
- Here, ~\newline
-\mbox{[}10\+:15,11\+:10\mbox{]} is common between first and second entry ~\newline
-Hence its frequency is 2 ~\newline
-\mbox{[}11\+:19,12\+:15\mbox{]} is common between third and forth entry ~\newline
-Hence its frequency is 2 ~\newline
-But length of \mbox{[}11\+:19,12\+:15\mbox{]} = 56 \texorpdfstring{$>$}{>} length of \mbox{[}10\+:15,11\+:10\mbox{]} ~\newline
-Hence our program will output 11\+:19-\/12\+:15;2 ~\newline
-~\newline
-~\newline
-{\bfseries{Unit testing =============================}} ~\newline
-We have used Catch2 -\/ a header only unit testing framework to write the test cases. The header file catch.\+hpp is included in the src directory solely to able to write unit test cases using the Catch2 framework.~\newline
-When the main program is executed without any arguments it will run all the unit test cases and provide the output on std\+::out console.~\newline
-All unit tests are written in Unit\+Tests.\+cpp file ~\newline
-~\newline
-{\bfseries{Data validation ===========================}} ~\newline
+ input file\+: ~\newline
+ 09\+:58,11\+:14 ~\newline
+ 10\+:15,11\+:10 ~\newline
+ 11\+:12,15\+:22 ~\newline
+ 11\+:19,12\+:15 ~\newline
+
+
+Here, ~\newline
+ \mbox{[}10\+:15,11\+:10\mbox{]} is common between first and second entry ~\newline
+ Hence its frequency is 2 ~\newline
+ \mbox{[}11\+:19,12\+:15\mbox{]} is common between third and forth entry ~\newline
+ Hence its frequency is 2 ~\newline
+ But length of \mbox{[}11\+:19,12\+:15\mbox{]} = 56 \texorpdfstring{$>$}{>} length of \mbox{[}10\+:15,11\+:10\mbox{]} ~\newline
+ Hence our program will output 11\+:19-\/12\+:15;2 ~\newline
+\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Unit testing}{Unit testing}}\label{index_autotoc_md5}
+We have used Catch2 -\/ a header only unit testing framework to write the test cases. ~\newline
+ The header file catch.\+hpp is included in the src directory solely to able to write unit test cases using the Catch2 framework. ~\newline
+ When the main program is executed without any arguments it will run all the unit test cases and provide the output on std\+::out console. ~\newline
+ All unit tests are written in \doxylink{_unit_tests_8cpp}{Unit\+Tests.\+cpp} file.\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{Data validation\+:}{Data validation\+:}}\label{index_autotoc_md6}
 The program will print on standard error the warning about invalid entry and exit times -\/ ~\newline
-if they are not in HH\+:MM format or if entry time \texorpdfstring{$>$}{>} exit time 
+ if they are not in HH\+:MM format or if entry time \texorpdfstring{$>$}{>} exit time ~\newline
+ 

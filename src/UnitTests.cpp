@@ -227,7 +227,6 @@ TEST_CASE("test 08", "max visitors should be calculated as zero when entry and e
 	{
 		{ "00:00","27:21" },
 		{ "-23:00","22:59" },
-		
 	};
 
 	testObj.setEntryExits(data);
@@ -236,11 +235,45 @@ TEST_CASE("test 08", "max visitors should be calculated as zero when entry and e
 	auto val = testObj.findMaxIntervalAndCount();
 	REQUIRE(val.first.first == "");
 	REQUIRE(val.first.second == "");
-	REQUIRE(val.second == 0);
+	REQUIRE(val.second == 0);	
 
 }
 
-TEST_CASE("test 09", "helper function splitString should split the string correclty based on passed arg and a sepearator char")
+TEST_CASE("test 09", "getInvalidEntryExitsPositions should indicate invalid time intervals if any")
+{
+	TimeIntervals testObj;
+	std::vector<std::pair<std::string, std::string>> data = {
+		{ "00:00","27:21" },
+		{ "10:14","11:10" },
+		{ "11:12","15:22" },
+		{ "09:58","11:14" },
+		{ "-23:00","22:59" },
+		{ "11:49","11:48" },
+		{ "11:16","12:12" }
+
+
+	};
+
+	testObj.setEntryExits(data);
+
+	testObj.calculateFrequencies();
+
+	auto invalidPositions = testObj.getInvalidEntryExitsPositions();
+	REQUIRE(invalidPositions.empty() == false);
+	REQUIRE(invalidPositions[0] == 0);
+	REQUIRE(invalidPositions[1] == 4);
+	REQUIRE(invalidPositions[2] == 5);
+
+	auto val = testObj.findMaxIntervalAndCount();
+
+	REQUIRE(val.first.first == "10:14");
+	REQUIRE(val.first.second == "11:10");
+	REQUIRE(val.second == 2);
+
+}
+
+
+TEST_CASE("test 10", "helper function splitString should split the string correclty based on passed arg and a sepearator char")
 {
 	SECTION("empty string")
 	{
@@ -280,7 +313,7 @@ TEST_CASE("test 09", "helper function splitString should split the string correc
 }
 
 
-TEST_CASE("test 10", "helper function isValidTimeFormat shuld return true when the arg passed is in valid HH:MM format")
+TEST_CASE("test 11", "helper function isValidTimeFormat shuld return true when the arg passed is in valid HH:MM format")
 {
 	SECTION("some invalid time formats")
 	{
