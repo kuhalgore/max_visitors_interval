@@ -6,8 +6,7 @@ present in the museum.
 Visiting times are given in a file in comma separated format.
 This filename needs to be passed into the program as a first argument.  
 ***Note*** - If no argument is passed, the program will run the unit test cases, [see Unit Testing section](#Unit-testing)
-***Compiler specifications***
-This code makes use of Catch2 unit testing framework which requires the code to be compiled using compiler supporting C++ 14 or more.
+***Compiler specifications*** - This code makes use of Catch2 unit testing framework which requires the code to be compiled using compiler supporting C++ 14 or more.
 
  
 This program prints the interval in below format.  
