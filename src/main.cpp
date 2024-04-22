@@ -37,14 +37,14 @@ int main(int argc, char *argv[])
 	std::cout << val.first.first<<'-'<< val.first.second<<';'<< val.second;
 
 	//print on standard error the warning about invalid entry and exit points if any
-	auto &invalidPositions = obj.getInvalidEntryExitsPositions();
+	const auto &invalidPositions = obj.getInvalidEntryExitsPositions();
 	if (invalidPositions.size())
 	{
 		std::cerr << "\n\nWarning : Following entry and exit times are ignored because \n"
 			"they were not in HH:MM format\n"
 			"or\n"
 			"entry time > exit time\n";
-		auto& enryExits = obj.getEntryExits();
+		const auto& enryExits = obj.getEntryExits();
 		for (auto &i : invalidPositions)
 		{
 			std::cerr <<i+1<< " --- "<<enryExits[i].first << ',' << enryExits[i].second<<'\n';
