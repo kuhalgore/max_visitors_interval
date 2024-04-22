@@ -11,6 +11,6 @@ add_executable(
 	src/main.cpp
 	src/TimeIntervals.cpp
 	src/TimeIntervals.h
-	src/Catch.hpp
+	src/catch.hpp
 	src/UnitTests.cpp
 	)
