@@ -8,18 +8,58 @@ std::pair<std::string, std::string> splitString(const std::string & arg, char c)
 	auto pos = arg.find(c);
 	if (pos != std::string::npos)
 	{
-		retVal.first = arg.substr(0, pos);
-		retVal.second = arg.substr(pos + 1);
+		return { arg.substr(0, pos), arg.substr(pos + 1) };
 	}
-	return retVal;	
+	return {};	
 }
 
 bool isValidTimeFormat(const std::string& arg)
 {
-	//regular expression to match HH:MM
-	std::regex hhmm("([01]?[0-9]|2[0-3]):[0-5][0-9]");
-	//Check if the input string is of the format HH:MM
-	return std::regex_match(arg, hhmm);
+	if(arg.empty() || arg.length() !=5 || arg[2] != minSecondsSeperator)
+	{
+		return false;
+	}
+	bool retVal = true;
+	switch(arg[0])
+	{
+		case '0':
+		case '1':
+		{
+			retVal = retVal && ( arg[1] >= '0' && arg[1] <= '9');
+		}
+		break;
+		
+		case '2':
+		{
+			retVal = retVal && ( arg[1]>= '0' && arg[1]<= '3');
+		}
+		break;
+		
+		default:
+			retVal = false;
+			
+	}
+	if (retVal)
+	{
+		switch(arg[3])
+		{
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			{
+				retVal = retVal && ( arg[4] >= '0' && arg[4] <= '9');
+			}
+			break;
+			
+			default:
+				retVal = false;
+		}
+	}
+	
+	return retVal;
 }
 
 //class methods definitions
@@ -120,7 +160,7 @@ std::pair< std::pair<std::string, std::string>, size_t > TimeIntervals::findMaxI
 
 	int maxStart = -1;
 	int maxEnd = -1;
-	int prevTimePointFreq = 0;
+	size_t prevTimePointFreq = 0;
 
 	//handle special case - when all elements have same frequencies
 	int firstVal = m_freq[0];

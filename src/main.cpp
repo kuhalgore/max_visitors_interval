@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
  	obj.findMaxIntervalAndCount();
 	auto val = obj.getIntervalWithMaxVisitors();
 	//print the output on standard output in expted format
-	std::cout << val.first.first<<'-'<< val.first.second<<';'<< val.second;
+	std::cout << val.first.first<<outputIntervalSeperator<< val.first.second<<outputValSeperator<< val.second;
 
 	//print on standard error the warning about invalid entry and exit points if any
 	const auto &invalidPositions = obj.getInvalidEntryExitsPositions();

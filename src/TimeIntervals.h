@@ -8,6 +8,8 @@
 
 constexpr int NoOfTimePoints = 24 * 60;
 constexpr char inputValSeperator = ',';
+constexpr char outputIntervalSeperator = '-';
+constexpr char outputValSeperator = ';';
 constexpr char minSecondsSeperator = ':';
 constexpr int TimeDigitPrecision = 2;
 
