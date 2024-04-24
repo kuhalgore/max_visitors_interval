@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['inputvalseperator_0',['inputValSeperator',['../_time_intervals_8h.html#a57903ec551904e7e3b42f242bf19725f',1,'TimeIntervals.h']]],
-  ['interval_20of_20the_20day_20with_20maximum_20visitors_1',['Finding interval of the day with maximum visitors',['../index.html',1,'']]],
-  ['interval_20with_20max_20value_2',['finding the interval with max value',['../index.html#autotoc_md3',1,'']]],
-  ['inttohhmm_3',['intToHHMM',['../class_time_intervals.html#a018738095eeb417c80760afac3d4a1a0',1,'TimeIntervals']]],
-  ['isvalidtimeformat_4',['isValidTimeFormat',['../_time_intervals_8cpp.html#a68b4690b619e052c046f19add69a59d0',1,'isValidTimeFormat(const std::string &amp;arg):&#160;TimeIntervals.cpp'],['../_time_intervals_8h.html#a68b4690b619e052c046f19add69a59d0',1,'isValidTimeFormat(const std::string &amp;arg):&#160;TimeIntervals.cpp']]]
+  ['hex_0',['HEX',['../_c_make_c_compiler_id_8c.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX:&#160;CMakeCXXCompilerId.cpp']]],
+  ['hhmmtoint_1',['HHMMToInt',['../class_time_intervals.html#a416d6d01036f9d419303468d8e76c9ed',1,'TimeIntervals']]]
 ];

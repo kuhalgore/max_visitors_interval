@@ -77,6 +77,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">TimeIntervals.h File Reference</div></div>
@@ -88,14 +89,23 @@ $(function() {
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="_trie_8h_source.html">Trie.h</a>&quot;</code><br />
 </div>
 <p><a href="_time_intervals_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_time_intervals.html">TimeIntervals</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_time_intervals.html" title="TimeIntervals class.">TimeIntervals</a> class.  <a href="class_time_intervals.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a2e3cd8fefef38a40c1ff814805304e61" id="r_a2e3cd8fefef38a40c1ff814805304e61"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e3cd8fefef38a40c1ff814805304e61">StartEnd</a></td></tr>
+<tr class="memdesc:a2e3cd8fefef38a40c1ff814805304e61"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_time_intervals.html">TimeIntervals</a> class.  <br /></td></tr>
+<tr class="separator:a2e3cd8fefef38a40c1ff814805304e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a217d6a8b9ea2441c6abc8aaae507fd88" id="r_a217d6a8b9ea2441c6abc8aaae507fd88"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; size_t, <a class="el" href="#a2e3cd8fefef38a40c1ff814805304e61">StartEnd</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a217d6a8b9ea2441c6abc8aaae507fd88">InvalidEntry</a></td></tr>
+<tr class="separator:a217d6a8b9ea2441c6abc8aaae507fd88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -110,11 +120,50 @@ Variables</h2></td></tr>
 <tr class="separator:a8ad6cdd32fdc0a2c5340c8458d6521af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57903ec551904e7e3b42f242bf19725f" id="r_a57903ec551904e7e3b42f242bf19725f"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57903ec551904e7e3b42f242bf19725f">inputValSeperator</a> = ','</td></tr>
 <tr class="separator:a57903ec551904e7e3b42f242bf19725f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c6290ce4650451e5c8a594d82ed570a" id="r_a0c6290ce4650451e5c8a594d82ed570a"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c6290ce4650451e5c8a594d82ed570a">outputIntervalSeperator</a> = '-'</td></tr>
+<tr class="separator:a0c6290ce4650451e5c8a594d82ed570a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a217b3bd2f0fadd38c6a1db8b549b7a" id="r_a7a217b3bd2f0fadd38c6a1db8b549b7a"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a217b3bd2f0fadd38c6a1db8b549b7a">outputValSeperator</a> = ';'</td></tr>
+<tr class="separator:a7a217b3bd2f0fadd38c6a1db8b549b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a464c7ab3029a3f3068fdd0b83419d940" id="r_a464c7ab3029a3f3068fdd0b83419d940"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a464c7ab3029a3f3068fdd0b83419d940">minSecondsSeperator</a> = ':'</td></tr>
 <tr class="separator:a464c7ab3029a3f3068fdd0b83419d940"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1afb588274f47fb0fc6856b4f5dbe721" id="r_a1afb588274f47fb0fc6856b4f5dbe721"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1afb588274f47fb0fc6856b4f5dbe721">TimeDigitPrecision</a> = 2</td></tr>
 <tr class="separator:a1afb588274f47fb0fc6856b4f5dbe721"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a217d6a8b9ea2441c6abc8aaae507fd88" name="a217d6a8b9ea2441c6abc8aaae507fd88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217d6a8b9ea2441c6abc8aaae507fd88">&#9670;&#160;</a></span>InvalidEntry</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;size_t, <a class="el" href="#a2e3cd8fefef38a40c1ff814805304e61">StartEnd</a>&gt; <a class="el" href="#a217d6a8b9ea2441c6abc8aaae507fd88">InvalidEntry</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e3cd8fefef38a40c1ff814805304e61" name="a2e3cd8fefef38a40c1ff814805304e61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e3cd8fefef38a40c1ff814805304e61">&#9670;&#160;</a></span>StartEnd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;std::string, std::string&gt; <a class="el" href="#a2e3cd8fefef38a40c1ff814805304e61">StartEnd</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_time_intervals.html">TimeIntervals</a> class. </p>
+<p>This class can read visiting times from an input file. The path of the input file is given as an argument to its readFromFile() method. The input file is a text file, where every line is the entering and leaving time values of one visitor separated with commas. For example: 10:15,14:20 11:10,15:22 Visiting times can be in a random order and not sorted by entering or leaving time values. method : readFromFile(const std::string &amp; fileName);</p>
+<p>Using the data from the input file, this class can find the time period, when there were the most number of visitors and how many visitors were in the museum in that time period. method : findMaxIntervalAndCount();</p>
+<p>This class can find the results found in the previous step to the standard output in the form &lt;start
+time&gt;-&lt;end time&gt;;&lt;number of visitors&gt;. For example: 11:10-14:20;2 method: getIntervalWithMaxVisitors(); </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a68b4690b619e052c046f19add69a59d0" name="a68b4690b619e052c046f19add69a59d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a68b4690b619e052c046f19add69a59d0">&#9670;&#160;</a></span>isValidTimeFormat()</h2>
@@ -212,6 +261,50 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">constexpr int NoOfTimePoints = 24 * 60</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c6290ce4650451e5c8a594d82ed570a" name="a0c6290ce4650451e5c8a594d82ed570a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c6290ce4650451e5c8a594d82ed570a">&#9670;&#160;</a></span>outputIntervalSeperator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char outputIntervalSeperator = '-'</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a217b3bd2f0fadd38c6a1db8b549b7a" name="a7a217b3bd2f0fadd38c6a1db8b549b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a217b3bd2f0fadd38c6a1db8b549b7a">&#9670;&#160;</a></span>outputValSeperator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char outputValSeperator = ';'</td>
         </tr>
       </table>
   </td>

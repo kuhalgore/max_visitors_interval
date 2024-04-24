@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['with_20max_20value_0',['finding the interval with max value',['../index.html#autotoc_md3',1,'']]],
-  ['with_20maximum_20visitors_1',['Finding interval of the day with maximum visitors',['../index.html',1,'']]]
+  ['validation_3a_0',['Data validation:',['../index.html#autotoc_md6',1,'']]],
+  ['value_1',['finding the interval with max value',['../index.html#autotoc_md3',1,'']]],
+  ['visitors_2',['Finding interval of the day with maximum visitors',['../index.html',1,'']]]
 ];

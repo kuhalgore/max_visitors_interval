@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timedigitprecision_0',['TimeDigitPrecision',['../_time_intervals_8h.html#a1afb588274f47fb0fc6856b4f5dbe721',1,'TimeIntervals.h']]]
+  ['minsecondsseperator_0',['minSecondsSeperator',['../_time_intervals_8h.html#a464c7ab3029a3f3068fdd0b83419d940',1,'TimeIntervals.h']]]
 ];

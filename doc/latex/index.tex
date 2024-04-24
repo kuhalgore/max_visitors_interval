@@ -7,6 +7,8 @@
 Visiting times are given in a file in comma separated format. This filename needs to be passed into the program as a first argument. ~\newline
  {\itshape {\bfseries{Note}}} -\/ If no argument is passed, the program will run the unit test cases, see Unit Testing section
 
+{\itshape {\bfseries{Compiler specifications}}} -\/ This code makes use of Catch2 unit testing framework which requires the code to be compiled using compiler supporting C++ 14 or more.
+
 This program prints the interval in below format. ~\newline
 
 
@@ -55,7 +57,7 @@ If there is more than one such group, then we will consider the group where ~\ne
 
 {\bfseries{Time complexity\+:}} K\texorpdfstring{$\ast$}{*}1440 comparisons + at max 1440 comparisons in find\+\_\+if applied on frequencies ~\newline
  = O(1) ~\newline
- {\itshape {\bfseries{Note}}} -\/ Here is K \texorpdfstring{$>$}{>} 0 is some constant representing no of comparisons per iteration, see \doxylink{class_time_intervals_ab0db3b45e15d8de01ad05e637254db3b}{Time\+Intervals\+::find\+Max\+Interval\+And\+Count} for more details ~\newline
+ {\itshape {\bfseries{Note}}} -\/ Here is K \texorpdfstring{$>$}{>} 0 is some constant representing no of comparisons per iteration, see \doxylink{class_time_intervals_a48338b49b7f47af7b576607555271c81}{Time\+Intervals\+::find\+Max\+Interval\+And\+Count} for more details ~\newline
 \hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Example}{Example}}\label{index_autotoc_md4}
 consider below input file ~\newline
  input file\+: ~\newline

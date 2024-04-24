@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['timeintervals_2ecpp_0',['TimeIntervals.cpp',['../_time_intervals_8cpp.html',1,'']]],
-  ['timeintervals_2eh_1',['TimeIntervals.h',['../_time_intervals_8h.html',1,'']]]
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]]
 ];

@@ -6,11 +6,20 @@
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}Trie.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_time_intervals}{Time\+Intervals}}
-\begin{DoxyCompactList}\small\item\em \doxylink{class_time_intervals}{Time\+Intervals} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{_time_intervals_8h_a2e3cd8fefef38a40c1ff814805304e61}{Start\+End}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_time_intervals}{Time\+Intervals} class. \end{DoxyCompactList}\item 
+typedef std\+::pair$<$ size\+\_\+t, \mbox{\hyperlink{_time_intervals_8h_a2e3cd8fefef38a40c1ff814805304e61}{Start\+End}} $>$ \mbox{\hyperlink{_time_intervals_8h_a217d6a8b9ea2441c6abc8aaae507fd88}{Invalid\+Entry}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,11 +34,38 @@ constexpr int \mbox{\hyperlink{_time_intervals_8h_a8ad6cdd32fdc0a2c5340c8458d652
 \item 
 constexpr char \mbox{\hyperlink{_time_intervals_8h_a57903ec551904e7e3b42f242bf19725f}{input\+Val\+Seperator}} = \textquotesingle{},\textquotesingle{}
 \item 
+constexpr char \mbox{\hyperlink{_time_intervals_8h_a0c6290ce4650451e5c8a594d82ed570a}{output\+Interval\+Seperator}} = \textquotesingle{}-\/\textquotesingle{}
+\item 
+constexpr char \mbox{\hyperlink{_time_intervals_8h_a7a217b3bd2f0fadd38c6a1db8b549b7a}{output\+Val\+Seperator}} = \textquotesingle{};\textquotesingle{}
+\item 
 constexpr char \mbox{\hyperlink{_time_intervals_8h_a464c7ab3029a3f3068fdd0b83419d940}{min\+Seconds\+Seperator}} = \textquotesingle{}\+:\textquotesingle{}
 \item 
 constexpr int \mbox{\hyperlink{_time_intervals_8h_a1afb588274f47fb0fc6856b4f5dbe721}{Time\+Digit\+Precision}} = 2
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_time_intervals_8h_a217d6a8b9ea2441c6abc8aaae507fd88}\label{_time_intervals_8h_a217d6a8b9ea2441c6abc8aaae507fd88} 
+\index{TimeIntervals.h@{TimeIntervals.h}!InvalidEntry@{InvalidEntry}}
+\index{InvalidEntry@{InvalidEntry}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{InvalidEntry}{InvalidEntry}}
+{\footnotesize\ttfamily typedef std\+::pair$<$size\+\_\+t, \mbox{\hyperlink{_time_intervals_8h_a2e3cd8fefef38a40c1ff814805304e61}{Start\+End}}$>$ \mbox{\hyperlink{_time_intervals_8h_a217d6a8b9ea2441c6abc8aaae507fd88}{Invalid\+Entry}}}
+
+\Hypertarget{_time_intervals_8h_a2e3cd8fefef38a40c1ff814805304e61}\label{_time_intervals_8h_a2e3cd8fefef38a40c1ff814805304e61} 
+\index{TimeIntervals.h@{TimeIntervals.h}!StartEnd@{StartEnd}}
+\index{StartEnd@{StartEnd}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{StartEnd}{StartEnd}}
+{\footnotesize\ttfamily typedef std\+::pair$<$std\+::string, std\+::string$>$ \mbox{\hyperlink{_time_intervals_8h_a2e3cd8fefef38a40c1ff814805304e61}{Start\+End}}}
+
+
+
+\doxylink{class_time_intervals}{Time\+Intervals} class. 
+
+This class can read visiting times from an input file. The path of the input file is given as an argument to its read\+From\+File() method. The input file is a text file, where every line is the entering and leaving time values of one visitor separated with commas. For example\+: 10\+:15,14\+:20 11\+:10,15\+:22 Visiting times can be in a random order and not sorted by entering or leaving time values. method \+: read\+From\+File(const std\+::string \& file\+Name);
+
+Using the data from the input file, this class can find the time period, when there were the most number of visitors and how many visitors were in the museum in that time period. method \+: find\+Max\+Interval\+And\+Count();
+
+This class can find the results found in the previous step to the standard output in the form $<$start time$>$-\/$<$end time$>$;$<$number of visitors$>$. For example\+: 11\+:10-\/14\+:20;2 method\+: get\+Interval\+With\+Max\+Visitors(); 
 
 \doxysubsection{Function Documentation}
 \Hypertarget{_time_intervals_8h_a68b4690b619e052c046f19add69a59d0}\label{_time_intervals_8h_a68b4690b619e052c046f19add69a59d0} 
@@ -64,6 +100,18 @@ This function splits the string based on passed separator
 \index{NoOfTimePoints@{NoOfTimePoints}!TimeIntervals.h@{TimeIntervals.h}}
 \doxysubsubsection{\texorpdfstring{NoOfTimePoints}{NoOfTimePoints}}
 {\footnotesize\ttfamily constexpr int No\+Of\+Time\+Points = 24 \texorpdfstring{$\ast$}{*} 60\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{_time_intervals_8h_a0c6290ce4650451e5c8a594d82ed570a}\label{_time_intervals_8h_a0c6290ce4650451e5c8a594d82ed570a} 
+\index{TimeIntervals.h@{TimeIntervals.h}!outputIntervalSeperator@{outputIntervalSeperator}}
+\index{outputIntervalSeperator@{outputIntervalSeperator}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{outputIntervalSeperator}{outputIntervalSeperator}}
+{\footnotesize\ttfamily constexpr char output\+Interval\+Seperator = \textquotesingle{}-\/\textquotesingle{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{_time_intervals_8h_a7a217b3bd2f0fadd38c6a1db8b549b7a}\label{_time_intervals_8h_a7a217b3bd2f0fadd38c6a1db8b549b7a} 
+\index{TimeIntervals.h@{TimeIntervals.h}!outputValSeperator@{outputValSeperator}}
+\index{outputValSeperator@{outputValSeperator}!TimeIntervals.h@{TimeIntervals.h}}
+\doxysubsubsection{\texorpdfstring{outputValSeperator}{outputValSeperator}}
+{\footnotesize\ttfamily constexpr char output\+Val\+Seperator = \textquotesingle{};\textquotesingle{}\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 \Hypertarget{_time_intervals_8h_a1afb588274f47fb0fc6856b4f5dbe721}\label{_time_intervals_8h_a1afb588274f47fb0fc6856b4f5dbe721} 
 \index{TimeIntervals.h@{TimeIntervals.h}!TimeDigitPrecision@{TimeDigitPrecision}}

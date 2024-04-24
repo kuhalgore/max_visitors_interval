@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['catch_5fconfig_5frunner_0',['CATCH_CONFIG_RUNNER',['../main_8cpp.html#a34b4c3eca7342fbc4cba090d02139902',1,'main.cpp']]]
+  ['architecture_5fid_0',['ARCHITECTURE_ID',['../_c_make_c_compiler_id_8c.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID:&#160;CMakeCXXCompilerId.cpp']]]
 ];

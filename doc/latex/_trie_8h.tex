@@ -1,0 +1,42 @@
+\doxysection{src/\+Trie.h File Reference}
+\hypertarget{_trie_8h}{}\label{_trie_8h}\index{src/Trie.h@{src/Trie.h}}
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_trie}{Trie$<$ Val\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{struct_trie_1_1_iterator}{Trie$<$ Val\+Type $>$\+::\+Iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr unsigned int \mbox{\hyperlink{_trie_8h_abbcf778076e59fa4fc0272740c69cc61}{CONTAINER\+\_\+\+SIZE}} = 60
+\item 
+constexpr unsigned int \mbox{\hyperlink{_trie_8h_ad45d667f1cd361e5b7197c583266d097}{NO\+\_\+\+OF\+\_\+\+CHILD\+\_\+\+NODES}} = 10
+\item 
+constexpr unsigned int \mbox{\hyperlink{_trie_8h_a81070099c98446d3fc8b2bcb24686839}{START\+\_\+\+INDEX}} = 48
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_trie_8h_abbcf778076e59fa4fc0272740c69cc61}\label{_trie_8h_abbcf778076e59fa4fc0272740c69cc61} 
+\index{Trie.h@{Trie.h}!CONTAINER\_SIZE@{CONTAINER\_SIZE}}
+\index{CONTAINER\_SIZE@{CONTAINER\_SIZE}!Trie.h@{Trie.h}}
+\doxysubsubsection{\texorpdfstring{CONTAINER\_SIZE}{CONTAINER\_SIZE}}
+{\footnotesize\ttfamily constexpr unsigned int CONTAINER\+\_\+\+SIZE = 60\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+why 60? We are not going to store only 60 digits in the \doxylink{class_trie}{Trie} (As valid time stamp in HH\+::\+MM format can contain strings from the reange \mbox{[}00\+:59\mbox{]} only. \Hypertarget{_trie_8h_ad45d667f1cd361e5b7197c583266d097}\label{_trie_8h_ad45d667f1cd361e5b7197c583266d097} 
+\index{Trie.h@{Trie.h}!NO\_OF\_CHILD\_NODES@{NO\_OF\_CHILD\_NODES}}
+\index{NO\_OF\_CHILD\_NODES@{NO\_OF\_CHILD\_NODES}!Trie.h@{Trie.h}}
+\doxysubsubsection{\texorpdfstring{NO\_OF\_CHILD\_NODES}{NO\_OF\_CHILD\_NODES}}
+{\footnotesize\ttfamily constexpr unsigned int NO\+\_\+\+OF\+\_\+\+CHILD\+\_\+\+NODES = 10\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+why 10? We are going to use the \doxylink{class_trie}{Trie} to sore strings containing only digits. There are 10 digits 0 to 9 and ascii value range of these digits is from 48 to 57 \Hypertarget{_trie_8h_a81070099c98446d3fc8b2bcb24686839}\label{_trie_8h_a81070099c98446d3fc8b2bcb24686839} 
+\index{Trie.h@{Trie.h}!START\_INDEX@{START\_INDEX}}
+\index{START\_INDEX@{START\_INDEX}!Trie.h@{Trie.h}}
+\doxysubsubsection{\texorpdfstring{START\_INDEX}{START\_INDEX}}
+{\footnotesize\ttfamily constexpr unsigned int START\+\_\+\+INDEX = 48\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+why 48? Ascii value range of digits \mbox{[}0,10\mbox{]} is \mbox{[}48,57\mbox{]} 

@@ -17,7 +17,6 @@ constexpr char outputValSeperator = ';';
 constexpr char minSecondsSeperator = ':';
 constexpr int TimeDigitPrecision = 2;
 
-//std::array<std::pair<std::string, int>, 5 > numberLiterals{ {"00",0}, {"01","1"}, {"03", 3}, {"04", 4}, {"05", 5} };
 //!  TimeIntervals class. 
 /*!
 This class can read visiting times from an input file.
@@ -47,6 +46,12 @@ class TimeIntervals
     std::vector<std::pair<std::string, std::string>> m_entryExits{};
     std::vector<InvalidEntry> m_invalidEntryExits{};
     std::array<unsigned int, NoOfTimePoints> m_freq{};
+    /*!
+        Making use of Trie to store key value mapppings of string representation of digits to thier int value.
+        for example "00"-> 00, "23"-->23 and "59"-->59, etc.
+        Our keys consists of only digits from[0 to 9] and key length 2.
+      
+    */
     Trie<unsigned int> m_timeLiterals;
 public:
 
@@ -133,7 +138,8 @@ public:
 
     /*!
     * This function converts the time value in HH:MM string format to Int using logic - 
-    60*HH + MM (number of minutes since 00:00)
+    60*(integral value of HH) + (integral value of  MM)
+    to convert the HH and MM to integer, we have used Trie data structure, see Trie.h for more details.
     @param arg - 24 hours time in HH:MM format
     ******************************************************************************/
     int HHMMToInt(const std::string &arg) const;
@@ -146,6 +152,11 @@ public:
     ******************************************************************************/
     std::string intToHHMM(int arg) const;
 
+    /*!
+    * Default constructor
+    - We have used this to initialize the trie data structure to store key (string) value(int) pairs of all digits between [00 to 59]
+    - see Trie.h for more details
+    */
     TimeIntervals()
     {
         m_timeLiterals.insert("00", 0);

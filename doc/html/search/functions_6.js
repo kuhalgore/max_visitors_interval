@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['readfromfile_0',['readFromFile',['../class_time_intervals.html#a27016c92eac5a40f55a986c713e7c0c7',1,'TimeIntervals']]]
+  ['operator_2a_0',['operator*',['../struct_trie_1_1_iterator.html#a266f148cb24000d974c08bc7ea47e8f6',1,'Trie::Iterator']]],
+  ['operator_2d_3e_1',['operator-&gt;',['../struct_trie_1_1_iterator.html#a644eceeddb256df695d96db809a81663',1,'Trie::Iterator']]]
 ];

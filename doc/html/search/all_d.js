@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['setentryexits_0',['setEntryExits',['../class_time_intervals.html#aaeadc79aa9cfa076367882118507eb23',1,'TimeIntervals']]],
-  ['splitstring_1',['splitString',['../_time_intervals_8cpp.html#a2f2ab74672c046d985469c578e0e1979',1,'splitString(const std::string &amp;arg, char c):&#160;TimeIntervals.cpp'],['../_time_intervals_8h.html#a2f2ab74672c046d985469c578e0e1979',1,'splitString(const std::string &amp;arg, char c):&#160;TimeIntervals.cpp']]]
+  ['readfromfile_0',['readFromFile',['../class_time_intervals.html#a27016c92eac5a40f55a986c713e7c0c7',1,'TimeIntervals']]],
+  ['readme_1',['README',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['readme_2emd_2',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['reference_3',['reference',['../struct_trie_1_1_iterator.html#aa2d253546f75186618e2b42ef807c016',1,'Trie::Iterator']]]
 ];

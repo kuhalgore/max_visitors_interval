@@ -1,0 +1,99 @@
+\doxysection{Trie.\+h}
+\hypertarget{_trie_8h_source}{}\label{_trie_8h_source}\index{src/Trie.h@{src/Trie.h}}
+\mbox{\hyperlink{_trie_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_trie_8h_abbcf778076e59fa4fc0272740c69cc61}{CONTAINER\_SIZE}}\ =\ 60;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{constexpr}\ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_trie_8h_ad45d667f1cd361e5b7197c583266d097}{NO\_OF\_CHILD\_NODES}}\ =\ 10;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{constexpr}\ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_trie_8h_a81070099c98446d3fc8b2bcb24686839}{START\_INDEX}}\ =\ 48;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ValType>}
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_trie}{Trie}}}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{struct\ }TrieNode}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::array<\ std::unique\_ptr<TrieNode>,\ \mbox{\hyperlink{_trie_8h_ad45d667f1cd361e5b7197c583266d097}{NO\_OF\_CHILD\_NODES}}>\ children;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ std::unique\_ptr<std::pair\ <std::string,\ ValType>\ >\ pStoredVal;}
+\DoxyCodeLine{00044\ \ \ \ \ \};}
+\DoxyCodeLine{00045\ \ \ \ \ std::unique\_ptr<TrieNode>\ root;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ noOfElements;}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_trie_1_1_iterator}{Iterator}}}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_trie_1_1_iterator_a567ec837e94f309c004b9c05d4b9d940}{pointer}}\ =\ std::pair<std::string,\ ValType>\ *;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_trie_1_1_iterator_aa2d253546f75186618e2b42ef807c016}{reference}}\ =\ std::pair<std::string,\ ValType>\&;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_trie_1_1_iterator_abfcdce517863cd576f1c0770d5df57e0}{Iterator}}(TrieNode*\ ptr):m\_ptr(ptr)\{\}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_trie_1_1_iterator_a567ec837e94f309c004b9c05d4b9d940}{pointer}}\ \mbox{\hyperlink{struct_trie_1_1_iterator_a644eceeddb256df695d96db809a81663}{operator-\/>}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_ptr-\/>pStoredVal.get();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_trie_1_1_iterator_aa2d253546f75186618e2b42ef807c016}{reference}}\ \mbox{\hyperlink{struct_trie_1_1_iterator_a266f148cb24000d974c08bc7ea47e8f6}{operator*}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_ptr-\/>pStoredVal.get();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ TrieNode*\ m\_ptr;}
+\DoxyCodeLine{00069\ \ \ \ \ \};}
+\DoxyCodeLine{00070\ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_trie_a95917e0f6672a8b1a648d821aeb45340}{Trie}}():\ root(std::make\_unique<TrieNode>()),noOfElements(0)}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trie_afb8da4677c55333e40ca6e3847b4ead3}{insert}}(\textcolor{keyword}{const}\ std::string\ \&\ word,\ ValType\&\&\ arg)}
+\DoxyCodeLine{00081\ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(noOfElements\ ==\ \mbox{\hyperlink{_trie_8h_abbcf778076e59fa4fc0272740c69cc61}{CONTAINER\_SIZE}})}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::bad\_alloc();}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ len\ =\ word.length();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ ++noOfElements;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ TrieNode*\ currentNode\ =\ root.get();}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{char}\ c:\ word)}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ indx\ =\ c-\/\mbox{\hyperlink{_trie_8h_a81070099c98446d3fc8b2bcb24686839}{START\_INDEX}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ ptr\ =\ currentNode-\/>children[indx];}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!ptr)\ \textcolor{comment}{//allocate\ a\ new\ node}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr\ =\ std::make\_unique<TrieNode>();}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ currentNode\ =\ ptr.get();}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//now\ store\ the\ value\ at\ this\ node}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ currentNode-\/>pStoredVal\ =\ std::make\_unique<\ std::pair\ <std::string,\ ValType>\ >(word,\ arg);}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ std::pair<bool,\ Iterator>\ \mbox{\hyperlink{class_trie_a11c2053e7815c75b2c3bf5c2ad7fc4a4}{search}}(\textcolor{keyword}{const}\ std::string\ \&\ word)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00110\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ TrieNode*\ currentNode\ =\ root.get();}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{char}\ c:\ word)}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ indx\ =\ c-\/\mbox{\hyperlink{_trie_8h_a81070099c98446d3fc8b2bcb24686839}{START\_INDEX}};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ ptr\ =\ currentNode-\/>children[indx];}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!ptr)\ \textcolor{comment}{//allocate\ a\ new\ node}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(\textcolor{keyword}{false},\ \mbox{\hyperlink{struct_trie_1_1_iterator}{Iterator}}(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ currentNode\ =\ ptr.get();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(\textcolor{keyword}{nullptr}!=currentNode-\/>pStoredVal,\ \mbox{\hyperlink{struct_trie_1_1_iterator}{Iterator}}(currentNode));}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_trie_ab4b5c95ff4545716f2b78af5e5332375}{size}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00126\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ noOfElements;}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ }
+
+\end{DoxyCode}

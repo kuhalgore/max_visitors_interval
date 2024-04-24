@@ -1,0 +1,78 @@
+\doxysection{Trie\texorpdfstring{$<$}{<} Val\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_trie}{}\label{class_trie}\index{Trie$<$ ValType $>$@{Trie$<$ ValType $>$}}
+
+
+{\ttfamily \#include $<$Trie.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_trie_1_1_iterator}{Iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_trie_a95917e0f6672a8b1a648d821aeb45340}{Trie}} ()
+\item 
+void \mbox{\hyperlink{class_trie_afb8da4677c55333e40ca6e3847b4ead3}{insert}} (const std\+::string \&word, Val\+Type \&\&arg)
+\item 
+std\+::pair$<$ bool, \mbox{\hyperlink{struct_trie_1_1_iterator}{Iterator}} $>$ \mbox{\hyperlink{class_trie_a11c2053e7815c75b2c3bf5c2ad7fc4a4}{search}} (const std\+::string \&word) const
+\item 
+size\+\_\+t \mbox{\hyperlink{class_trie_ab4b5c95ff4545716f2b78af5e5332375}{size}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Val\+Type$>$\newline
+class Trie$<$ Val\+Type $>$}
+Simple implemntation of a \doxylink{class_trie}{Trie} data structure We can use,
+\begin{DoxyItemize}
+\item \doxylink{class_trie_afb8da4677c55333e40ca6e3847b4ead3}{insert()} method to add a new entry
+\item \doxylink{class_trie_a11c2053e7815c75b2c3bf5c2ad7fc4a4}{search()} method to find value corresponding the input key
+\end{DoxyItemize}
+
+We can use this \doxylink{class_trie}{Trie} wherein keys consists of only digits from \mbox{[}0 to 9\mbox{]} and key length is not too large. ( time complexity of \doxylink{class_trie_afb8da4677c55333e40ca6e3847b4ead3}{insert()} and \doxylink{class_trie_a11c2053e7815c75b2c3bf5c2ad7fc4a4}{search()} is O(n) where n is length of the input key ) This is ideal for our use case where in we want to find int value corresponding to its string reprenstaion of digits for example "{}00"{}-\/\texorpdfstring{$>$}{>} 00, "{}23"{}-\/-\/\texorpdfstring{$>$}{>}23 and "{}59"{}-\/-\/\texorpdfstring{$>$}{>}59, etc. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_trie_a95917e0f6672a8b1a648d821aeb45340}\label{class_trie_a95917e0f6672a8b1a648d821aeb45340} 
+\index{Trie$<$ ValType $>$@{Trie$<$ ValType $>$}!Trie@{Trie}}
+\index{Trie@{Trie}!Trie$<$ ValType $>$@{Trie$<$ ValType $>$}}
+\doxysubsubsection{\texorpdfstring{Trie()}{Trie()}}
+{\footnotesize\ttfamily template$<$typename Val\+Type $>$ \\
+\mbox{\hyperlink{class_trie}{Trie}}$<$ Val\+Type $>$\mbox{\hyperlink{class_trie}{\+::\+Trie}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_trie_afb8da4677c55333e40ca6e3847b4ead3}\label{class_trie_afb8da4677c55333e40ca6e3847b4ead3} 
+\index{Trie$<$ ValType $>$@{Trie$<$ ValType $>$}!insert@{insert}}
+\index{insert@{insert}!Trie$<$ ValType $>$@{Trie$<$ ValType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$typename Val\+Type $>$ \\
+void \mbox{\hyperlink{class_trie}{Trie}}$<$ Val\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word,  }\item[{Val\+Type \&\&}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method inserts a key value pair (word, arg) into the \doxylink{class_trie}{Trie}
+\begin{DoxyItemize}
+\item time complexity O(n) where n is length of the input key 
+\end{DoxyItemize}\Hypertarget{class_trie_a11c2053e7815c75b2c3bf5c2ad7fc4a4}\label{class_trie_a11c2053e7815c75b2c3bf5c2ad7fc4a4} 
+\index{Trie$<$ ValType $>$@{Trie$<$ ValType $>$}!search@{search}}
+\index{search@{search}!Trie$<$ ValType $>$@{Trie$<$ ValType $>$}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily template$<$typename Val\+Type $>$ \\
+std\+::pair$<$ bool, \mbox{\hyperlink{struct_trie_1_1_iterator}{Iterator}} $>$ \mbox{\hyperlink{class_trie}{Trie}}$<$ Val\+Type $>$\+::search (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method retrives the value stored against the passed key as an argument
+\begin{DoxyItemize}
+\item time complexity O(n) where n is length of the input key 
+\end{DoxyItemize}\Hypertarget{class_trie_ab4b5c95ff4545716f2b78af5e5332375}\label{class_trie_ab4b5c95ff4545716f2b78af5e5332375} 
+\index{Trie$<$ ValType $>$@{Trie$<$ ValType $>$}!size@{size}}
+\index{size@{size}!Trie$<$ ValType $>$@{Trie$<$ ValType $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Val\+Type $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_trie}{Trie}}$<$ Val\+Type $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_trie_8h}{Trie.\+h}}\end{DoxyCompactItemize}

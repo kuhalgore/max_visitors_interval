@@ -1,0 +1,76 @@
+\doxysection{Trie\texorpdfstring{$<$}{<} Val\+Type \texorpdfstring{$>$}{>}\+::Iterator Struct Reference}
+\hypertarget{struct_trie_1_1_iterator}{}\label{struct_trie_1_1_iterator}\index{Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}}
+
+
+{\ttfamily \#include $<$Trie.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{struct_trie_1_1_iterator_a567ec837e94f309c004b9c05d4b9d940}{pointer}} = std\+::pair$<$std\+::string, Val\+Type$>$ \texorpdfstring{$\ast$}{*}
+\item 
+using \mbox{\hyperlink{struct_trie_1_1_iterator_aa2d253546f75186618e2b42ef807c016}{reference}} = std\+::pair$<$std\+::string, Val\+Type$>$\&
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_trie_1_1_iterator_abfcdce517863cd576f1c0770d5df57e0}{Iterator}} (Trie\+Node \texorpdfstring{$\ast$}{*}ptr)
+\item 
+\mbox{\hyperlink{struct_trie_1_1_iterator_a567ec837e94f309c004b9c05d4b9d940}{pointer}} \mbox{\hyperlink{struct_trie_1_1_iterator_a644eceeddb256df695d96db809a81663}{operator-\/$>$}} () const
+\item 
+\mbox{\hyperlink{struct_trie_1_1_iterator_aa2d253546f75186618e2b42ef807c016}{reference}} \mbox{\hyperlink{struct_trie_1_1_iterator_a266f148cb24000d974c08bc7ea47e8f6}{operator\texorpdfstring{$\ast$}{*}}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Val\+Type$>$\newline
+struct Trie$<$ Val\+Type $>$\+::\+Iterator}
+A simple iterator implementation providing -\/\texorpdfstring{$>$}{>} and \texorpdfstring{$\ast$}{*} operator 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{struct_trie_1_1_iterator_a567ec837e94f309c004b9c05d4b9d940}\label{struct_trie_1_1_iterator_a567ec837e94f309c004b9c05d4b9d940} 
+\index{Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}!pointer@{pointer}}
+\index{pointer@{pointer}!Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily template$<$typename Val\+Type $>$ \\
+using \mbox{\hyperlink{class_trie}{Trie}}$<$ Val\+Type $>$\+::\+Iterator\+::pointer = std\+::pair$<$std\+::string, Val\+Type$>$ \texorpdfstring{$\ast$}{*}}
+
+\Hypertarget{struct_trie_1_1_iterator_aa2d253546f75186618e2b42ef807c016}\label{struct_trie_1_1_iterator_aa2d253546f75186618e2b42ef807c016} 
+\index{Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}!reference@{reference}}
+\index{reference@{reference}!Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{reference}{reference}}
+{\footnotesize\ttfamily template$<$typename Val\+Type $>$ \\
+using \mbox{\hyperlink{class_trie}{Trie}}$<$ Val\+Type $>$\+::\+Iterator\+::reference = std\+::pair$<$std\+::string, Val\+Type$>$\&}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_trie_1_1_iterator_abfcdce517863cd576f1c0770d5df57e0}\label{struct_trie_1_1_iterator_abfcdce517863cd576f1c0770d5df57e0} 
+\index{Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{Iterator()}{Iterator()}}
+{\footnotesize\ttfamily template$<$typename Val\+Type $>$ \\
+\mbox{\hyperlink{class_trie}{Trie}}$<$ Val\+Type $>$\+::\+Iterator\+::\+Iterator (\begin{DoxyParamCaption}\item[{Trie\+Node \texorpdfstring{$\ast$}{*}}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_trie_1_1_iterator_a266f148cb24000d974c08bc7ea47e8f6}\label{struct_trie_1_1_iterator_a266f148cb24000d974c08bc7ea47e8f6} 
+\index{Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename Val\+Type $>$ \\
+\mbox{\hyperlink{struct_trie_1_1_iterator_aa2d253546f75186618e2b42ef807c016}{reference}} \mbox{\hyperlink{class_trie}{Trie}}$<$ Val\+Type $>$\+::\+Iterator\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{struct_trie_1_1_iterator_a644eceeddb256df695d96db809a81663}\label{struct_trie_1_1_iterator_a644eceeddb256df695d96db809a81663} 
+\index{Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!Trie$<$ ValType $>$::Iterator@{Trie$<$ ValType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily template$<$typename Val\+Type $>$ \\
+\mbox{\hyperlink{struct_trie_1_1_iterator_a567ec837e94f309c004b9c05d4b9d940}{pointer}} \mbox{\hyperlink{class_trie}{Trie}}$<$ Val\+Type $>$\+::\+Iterator\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_trie_8h}{Trie.\+h}}\end{DoxyCompactItemize}

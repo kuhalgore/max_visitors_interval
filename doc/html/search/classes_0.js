@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timeintervals_0',['TimeIntervals',['../class_time_intervals.html',1,'']]]
+  ['iterator_0',['Iterator',['../struct_trie_1_1_iterator.html',1,'Trie']]]
 ];

@@ -22,7 +22,17 @@ Ascii value range of digits [0,10] is [48,57]
 */
 constexpr  unsigned int START_INDEX = 48;
 
+/*!
+    Simple implemntation of a Trie data structure
+    We can use,
+    - insert() method to add a new entry
+    - search() method to find value corresponding the input key
 
+    We can use this Trie wherein keys consists of only digits from [0 to 9] and key length is not too large.
+    ( time complexity of insert() and search() is O(n) where n is length of the input key )
+    This is ideal for our use case where in we want to find int value corresponding to its string reprenstaion of digits
+    for example "00"-> 00, "23"-->23 and "59"-->59, etc.
+*/
 
 template <typename ValType>
 class Trie
@@ -36,6 +46,9 @@ class Trie
     unsigned int noOfElements;
     
     public:
+    /*!
+        A simple iterator implementation providing -> and * operator
+    */
     struct Iterator
     {
         using pointer = std::pair<std::string, ValType> *;
@@ -60,6 +73,10 @@ class Trie
         
     }
     
+    /*!
+        This method inserts a key value pair (word, arg) into the Trie
+        - time complexity O(n) where n is length of the input key
+    */
     void insert(const std::string & word, ValType&& arg)
     {
         if(noOfElements == CONTAINER_SIZE)
@@ -85,6 +102,10 @@ class Trie
         currentNode->pStoredVal = std::make_unique< std::pair <std::string, ValType> >(word, arg);
     }
     
+    /*!
+        This method retrives the value stored against the passed key as an argument
+        - time complexity O(n) where n is length of the input key
+    */
     std::pair<bool, Iterator> search(const std::string & word) const
     {
         TrieNode* currentNode = root.get();
