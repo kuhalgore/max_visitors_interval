@@ -76,7 +76,7 @@ TEST_CASE("test 03", "finding max visitors interval with 2 overlapping and 2 non
 
     testObj.setEntryExits(data);
     testObj.calculateFrequencies();
-    REQUIRE(testObj.getFrequency("9:59") == 1);
+    REQUIRE(testObj.getFrequency("09:59") == 1);
 
     REQUIRE(testObj.getFrequency("10:00") == 2);
     REQUIRE(testObj.getFrequency("10:20") == 2);

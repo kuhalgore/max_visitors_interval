@@ -64,15 +64,18 @@ bool isValidTimeFormat(const std::string& arg)
 //class methods definitions
 int TimeIntervals::HHMMToInt(const std::string &arg) const
 {
-    auto val = splitString(arg, minSecondsSeperator);
-    return 60 * std::stoi(val.first) + std::stoi(val.second);
-
+    const auto &val = splitString(arg, minSecondsSeperator);
+    
     const auto& it1 = m_timeLiterals.search(val.first);
     const auto& it2 = m_timeLiterals.search(val.second);
 
     if (it1.first && it2.first)
     {
         return 60 * (it1.second->second) + it2.second->second;
+    }
+    else
+    {
+        return 0;
     }
     
 }
